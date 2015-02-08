@@ -78,7 +78,7 @@ public class SokobanScene {
 		}
 		
 		GameViewController.init();
-		Level.init(level);
+		Level.loadLevel(level);
 //		SokobanAnimation.init();
 		
 	}
