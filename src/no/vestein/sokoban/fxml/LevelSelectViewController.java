@@ -8,7 +8,7 @@ public class LevelSelectViewController {
 
 	@FXML
 	private void levelButtonPressedLevel1() {
-		SokobanScene.startGame(Levels.level);
+		SokobanScene.startGame(Levels.level1);
 	}
 	
 	@FXML
