@@ -67,12 +67,12 @@ public class LevelEditor {
 	private static void setupBlocks() {
 		blockGroup = new Group();
 		
-		BlockTool wall = new BlockTool(50, 40, Color.BROWN, '#');
-		BlockTool box = new BlockTool(90, 40, Color.RED, '$');
-		BlockTool boxOnGoal = new BlockTool(130, 40, Color.GREEN, '*');
-		BlockTool goal = new BlockTool(170, 40, Color.LIGHTBLUE, '.');
-		BlockTool player = new BlockTool(210, 40, Color.YELLOW, '@');
-		BlockTool air = new BlockTool(250, 40, Color.LIGHTGREY, '0');
+		BlockTool wall = new BlockTool(50, 40, Color.BROWN, '#', "Wall");
+		BlockTool box = new BlockTool(90, 40, Color.RED, '$', "Box");
+		BlockTool boxOnGoal = new BlockTool(130, 40, Color.GREEN, '*', "Box on Goal");
+		BlockTool goal = new BlockTool(170, 40, Color.LIGHTBLUE, '.', "Goal");
+		BlockTool player = new BlockTool(210, 40, Color.YELLOW, '@', "Player");
+		BlockTool air = new BlockTool(250, 40, Color.LIGHTGREY, '0', "Air");
 		
 		blockGroup.getChildren().addAll(wall, box, boxOnGoal, goal, player, air);
 		
