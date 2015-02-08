@@ -6,7 +6,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import no.vestein.sokoban.SokobanScene;
 import no.vestein.sokoban.map.Level;
-import no.vestein.sokoban.map.Movement;
+import no.vestein.sokoban.map.MoveController;
 
 public class GameViewController {
 	
@@ -18,7 +18,7 @@ public class GameViewController {
 				if (keyevent.getCode() == KeyCode.A) {
 					System.out.println("test");
 				}
-				Movement.checkKeyPressed(keyevent);
+				MoveController.checkKeyPressed(keyevent);
 			}
 		});
 		

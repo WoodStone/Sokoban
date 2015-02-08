@@ -1,7 +1,7 @@
 package no.vestein.sokoban.animation;
 
 import no.vestein.sokoban.map.Level;
-import no.vestein.sokoban.map.Movement;
+import no.vestein.sokoban.map.MoveController;
 import javafx.animation.Animation.Status;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -33,7 +33,7 @@ public class SokobanAnimation {
 			public void handle(ActionEvent event) {
 				Level.getMap().getPlayer().setYPosition(Level.getMap().getPlayer().getYPosition() + 1);
 				Level.getMap().getPlayer().getObject().setTranslateY(0);
-				Movement.movePlayer(0, 1);
+				MoveController.movePlayer(0, 1);
 			}
 		});
 		
