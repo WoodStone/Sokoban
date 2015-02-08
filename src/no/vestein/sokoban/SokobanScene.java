@@ -2,6 +2,7 @@ package no.vestein.sokoban;
 
 import no.vestein.sokoban.animation.SokobanAnimation;
 import no.vestein.sokoban.fxml.GameViewController;
+import no.vestein.sokoban.leveleditor.LevelEditor;
 import no.vestein.sokoban.map.Level;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -16,6 +17,7 @@ public class SokobanScene {
 	public static AnchorPane startView;
 	public static AnchorPane gameView;
 	public static AnchorPane levelSelectView;
+	public static AnchorPane levelEditorView;
 	public static Scene scene;
 
 	
@@ -61,6 +63,19 @@ public class SokobanScene {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
+	}
+	
+	public static void levelEditor() {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(Main.class.getResource("fxml/LevelEditorView.fxml"));
+			levelEditorView = (AnchorPane) loader.load();
+			
+			root.setCenter(levelEditorView);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		LevelEditor.init();
 	}
 	
 	public static void startGame(char[][] level) {

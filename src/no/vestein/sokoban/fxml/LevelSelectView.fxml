@@ -10,5 +10,6 @@
       <Button layoutX="220.0" layoutY="198.0" mnemonicParsing="false" onAction="#levelButtonPressedLevel1" text="Level 1" />
       <Button layoutX="220.0" layoutY="224.0" mnemonicParsing="false" onAction="#levelButtonPressedLevel2" text="Level 2" />
       <Button layoutX="220.0" layoutY="250.0" mnemonicParsing="false" onAction="#levelButtonPressedLevel3" text="Level 3" />
+      <Button layoutX="184.0" layoutY="276.0" mnemonicParsing="false" onAction="#customLevelButtonPressed" text="Load Custom Level" />
    </children>
 </AnchorPane>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.vestein.sokoban.fxml.LevelEditorViewController">
+   <children>
+      <Rectangle fill="#e4e4e4" height="29.0" stroke="#c6c6c6" strokeType="INSIDE" width="500.0" />
+      <Text layoutX="14.0" layoutY="20.0" onMouseClicked="#returnPressed" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" strokeType="OUTSIDE" strokeWidth="0.0" text="Return">
+         <font>
+            <Font size="16.0" />
+         </font></Text>
+      <Text layoutX="75.0" layoutY="20.0" onMouseClicked="#savePressed" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" strokeType="OUTSIDE" strokeWidth="0.0" text="Save">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="121.0" layoutY="20.0" onMouseClicked="#loadPressed" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" strokeType="OUTSIDE" strokeWidth="0.0" text="Load">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

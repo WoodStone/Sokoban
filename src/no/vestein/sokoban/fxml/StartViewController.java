@@ -7,8 +7,12 @@ public class StartViewController {
 	
 	@FXML
 	private void startButtonPressed() {
-		System.out.println("hei");
 		SokobanScene.levelSelect();
+	}
+	
+	@FXML
+	private void levelEditorButtonPressed() {
+		SokobanScene.levelEditor();
 	}
 
 }
