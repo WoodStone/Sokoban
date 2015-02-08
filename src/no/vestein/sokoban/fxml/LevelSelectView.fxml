@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.vestein.sokoban.fxml.LevelSelectViewController">
+   <children>
+      <Button layoutX="220.0" layoutY="198.0" mnemonicParsing="false" onAction="#levelButtonPressedLevel1" text="Level 1" />
+      <Button layoutX="220.0" layoutY="224.0" mnemonicParsing="false" onAction="#levelButtonPressedLevel2" text="Level 2" />
+      <Button layoutX="220.0" layoutY="250.0" mnemonicParsing="false" onAction="#levelButtonPressedLevel3" text="Level 3" />
+   </children>
+</AnchorPane>
