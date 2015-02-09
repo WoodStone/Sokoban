@@ -106,7 +106,6 @@ public class SokobanLevel {
 				} else if (level[i][j] == '@') {
 					BlockPlayer player = new BlockPlayer(posX + (j * 20), posY + (i * 20));
 					map.put("player", player);
-					System.out.println(j + "." + i);
 				}
 			}
 		}
