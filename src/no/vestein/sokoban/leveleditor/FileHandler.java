@@ -3,18 +3,19 @@ package no.vestein.sokoban.leveleditor;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FilePermission;
+//import java.io.FilePermission;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+import no.vestein.sokoban.Main;
 import no.vestein.sokoban.SokobanScene;
 import javafx.stage.FileChooser;
 
 public class FileHandler {
 
-	public static void save(char[][] level) throws FileNotFoundException {
+	public static void saveDialog(char[][] level) throws FileNotFoundException {
 		String filepath = System.getProperty("user.home");
-		FilePermission perm = new FilePermission(filepath, "write");
+//		FilePermission perm = new FilePermission(filepath, "write");
 		
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("Save Level File");
@@ -33,9 +34,9 @@ public class FileHandler {
 		
 	}
 	
-	public static char[][] load() throws FileNotFoundException {
+	public static char[][] loadDialog() throws FileNotFoundException {
 		String filepath = System.getProperty("user.home");
-		FilePermission perm = new FilePermission(filepath, "read");
+//		FilePermission perm = new FilePermission(filepath, "read");
 		
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("Open Level File");
@@ -43,6 +44,15 @@ public class FileHandler {
 		
 		File file = fileChooser.showOpenDialog(SokobanScene.primaryStage);
 
+		return readLevelFile(file);
+	}
+	
+	public static char[][] loadLevel(String filename) throws FileNotFoundException {
+		File file = new File(Main.class.getResource("map/levels/" + filename).getPath());
+		return readLevelFile(file);
+	}
+	
+	public static char[][] readLevelFile(File file) throws FileNotFoundException {
 		Scanner scanner = new Scanner(file);
 		char[][] newLevel = new char[20][20];
 		int yPos = 0;

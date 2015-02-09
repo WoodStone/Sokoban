@@ -29,12 +29,12 @@ public class LevelEditorViewController {
 	
 	@FXML
 	public void savePressed() throws FileNotFoundException {
-		FileHandler.save(LevelEditor.level);
+		FileHandler.saveDialog(LevelEditor.level);
 	}
 	
 	@FXML
 	public void loadPressed() throws FileNotFoundException {
-		char[][] level = FileHandler.load();
+		char[][] level = FileHandler.loadDialog();
 		LevelEditor.load(level);
 	}
 }
