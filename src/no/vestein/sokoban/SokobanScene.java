@@ -1,5 +1,6 @@
 package no.vestein.sokoban;
 
+import no.vestein.sokoban.animation.AnimationPlayer;
 import no.vestein.sokoban.animation.SokobanAnimation;
 import no.vestein.sokoban.fxml.GameViewController;
 import no.vestein.sokoban.leveleditor.LevelEditor;
@@ -95,6 +96,7 @@ public class SokobanScene {
 		GameViewController.init();
 		Level.loadLevel(level);
 //		SokobanAnimation.init();
+//		AnimationPlayer.init();
 		
 	}
 	

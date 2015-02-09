@@ -3,6 +3,7 @@ package no.vestein.sokoban.map;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
+import no.vestein.sokoban.animation.AnimationPlayer;
 import no.vestein.sokoban.blocks.Block;
 import no.vestein.sokoban.blocks.BlockGoal;
 import no.vestein.sokoban.blocks.BlockBox;
@@ -14,12 +15,16 @@ public class MoveController {
 		KeyCode key = keyevent.getCode();
 		if (key == KeyCode.DOWN) {
 			movePlayer(0, 1);
+//			if (movePlayer(0, 1)) AnimationPlayer.goDown();
 		} else if (key == KeyCode.UP) {
 			movePlayer(0, -1);
+//			if (movePlayer(0, -1)) AnimationPlayer.goUp();
 		} else if (key == KeyCode.LEFT) {
 			movePlayer(-1, 0);
+//			if (movePlayer(-1, 0)) AnimationPlayer.goLeft();
 		} else if (key == KeyCode.RIGHT) {
 			movePlayer(1, 0);
+//			if (movePlayer(1, 0)) AnimationPlayer.goRight();
 		}
 	}
 	
@@ -48,7 +53,7 @@ public class MoveController {
 		return true;
 	}
 
-	public static void movePlayer(int dirX, int dirY) {
+	public static boolean movePlayer(int dirX, int dirY) {
 		int playerX = Level.getMap().getPlayer().getXPosition();
 		int playerY = Level.getMap().getPlayer().getYPosition();
 		Block block = Level.getMap().getBlock(playerX + dirX, playerY + dirY);
@@ -58,6 +63,7 @@ public class MoveController {
 			
 			Level.getMap().getObjectMap().remove(playerX + "." + playerY + "player");
 			Level.getMap().getObjectMap().put("player", Level.getMap().getPlayer());
+			return true;
 		} else if (! (block instanceof BlockWall)) {
 			if (moveBlock(playerX, playerY, dirX, dirY)) {
 				Level.getMap().getPlayer().setXPosition(playerX + dirX);
@@ -65,8 +71,10 @@ public class MoveController {
 				
 				Level.getMap().getObjectMap().remove(playerX + "." + playerY + "player");
 				Level.getMap().getObjectMap().put("player", Level.getMap().getPlayer());
+				return true;
 			}
 		}
+		return false;
 	}
 	
 }
