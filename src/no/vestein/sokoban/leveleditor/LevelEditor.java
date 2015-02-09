@@ -5,11 +5,14 @@ import no.vestein.sokoban.leveleditor.grid.BlockGrid;
 import no.vestein.sokoban.leveleditor.grid.BlockTool;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 public class LevelEditor {
 	
 	public static Group gridGroup;
-	public static Group blockGroup;
+	public static Group toolsGroup;
+	public static Text toolTooltip;
 	
 	public static BlockTool selectedBlockTool;
 	
@@ -65,18 +68,22 @@ public class LevelEditor {
 	}
 	
 	private static void setupBlocks() {
-		blockGroup = new Group();
+		toolsGroup = new Group();
 		
 		BlockTool wall = new BlockTool(50, 40, Color.BROWN, '#', "Wall");
 		BlockTool box = new BlockTool(90, 40, Color.RED, '$', "Box");
 		BlockTool boxOnGoal = new BlockTool(130, 40, Color.GREEN, '*', "Box on Goal");
 		BlockTool goal = new BlockTool(170, 40, Color.LIGHTBLUE, '.', "Goal");
 		BlockTool player = new BlockTool(210, 40, Color.YELLOW, '@', "Player");
-		BlockTool air = new BlockTool(250, 40, Color.LIGHTGREY, '0', "Air");
+		BlockTool air = new BlockTool(250, 40, Color.LIGHTGREY, Color.rgb(227, 227, 227, 0.15), '0', "Air");
 		
-		blockGroup.getChildren().addAll(wall, box, boxOnGoal, goal, player, air);
+		toolsGroup.getChildren().addAll(wall, box, boxOnGoal, goal, player, air);
 		
-		SokobanScene.levelEditorView.getChildren().add(blockGroup);
+		toolTooltip = new Text(300, 55 + 7.5, "<--Select block");
+		toolTooltip.setFill(Color.AQUA);
+		toolTooltip.setFont(Font.font(20));
+		
+		SokobanScene.levelEditorView.getChildren().addAll(toolsGroup, toolTooltip);
 	}
 	
 }

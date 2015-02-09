@@ -12,7 +12,8 @@ public class BlockGrid extends Rectangle{
 	
 	public BlockGrid(int x, int y) {
 		super(x, y, 20, 20);
-		this.setFill(Color.LIGHTGRAY);
+//		this.setFill(Color.LIGHTGRAY);
+		this.setFill(Color.rgb(227, 227, 227, 0.15));
 		this.setStroke(Color.DARKGRAY);
 		this.tag = '0';
 		
@@ -21,7 +22,7 @@ public class BlockGrid extends Rectangle{
 			public void handle(MouseEvent mouseEvent) throws NullPointerException {
 				BlockGrid block = (BlockGrid) mouseEvent.getSource();
 				
-				block.setFill(LevelEditor.selectedBlockTool.getFill());
+				block.setFill(LevelEditor.selectedBlockTool.getColor());
 				block.setTag(LevelEditor.selectedBlockTool.getTag());
 				
 				int xpos = (int) (block.getX() - 50) / 20;
