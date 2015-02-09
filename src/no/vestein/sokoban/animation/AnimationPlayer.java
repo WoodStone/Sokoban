@@ -9,7 +9,6 @@ import javafx.event.EventHandler;
 import javafx.scene.shape.Ellipse;
 import javafx.util.Duration;
 import no.vestein.sokoban.map.Level;
-import no.vestein.sokoban.map.MoveController;
 
 public class AnimationPlayer {
 

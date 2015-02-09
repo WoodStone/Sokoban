@@ -3,7 +3,7 @@ package no.vestein.sokoban.map;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
-import no.vestein.sokoban.animation.AnimationPlayer;
+//import no.vestein.sokoban.animation.AnimationPlayer;
 import no.vestein.sokoban.blocks.Block;
 import no.vestein.sokoban.blocks.BlockGoal;
 import no.vestein.sokoban.blocks.BlockBox;
