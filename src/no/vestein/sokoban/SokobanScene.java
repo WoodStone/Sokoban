@@ -1,7 +1,5 @@
 package no.vestein.sokoban;
 
-import no.vestein.sokoban.animation.AnimationPlayer;
-//import no.vestein.sokoban.animation.SokobanAnimation;
 import no.vestein.sokoban.animation.Background;
 import no.vestein.sokoban.fxml.GameViewController;
 import no.vestein.sokoban.level.Level;
@@ -45,7 +43,6 @@ public class SokobanScene {
 	}
 	
 	public static void initStart() {
-		
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(Main.class.getResource("fxml/StartView.fxml"));
@@ -98,9 +95,6 @@ public class SokobanScene {
 		
 		GameViewController.init();
 		Level.loadLevel(level);
-//		SokobanAnimation.init();
-		AnimationPlayer.init();
-		
 	}
 	
 }

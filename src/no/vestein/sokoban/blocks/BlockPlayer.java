@@ -1,19 +1,15 @@
 package no.vestein.sokoban.blocks;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import no.vestein.sokoban.Main;
-import no.vestein.sokoban.SokobanScene;
+import no.vestein.sokoban.animation.AnimationPlayer;
 import no.vestein.sokoban.animation.SpriteAnimation;
 import no.vestein.sokoban.level.Level;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Ellipse;
 import javafx.util.Duration;
 
 public class BlockPlayer extends Block {
@@ -29,25 +25,26 @@ public class BlockPlayer extends Block {
 	private SpriteAnimation right;
 	private SpriteAnimation left;
 	
+	private AnimationPlayer animationPlayer;
+	
 	public BlockPlayer(int x, int y) {
 		super(x, y);
 		
 		imageView = new ImageView(IMAGE);
 		imageView.setViewport(new Rectangle2D(0, 0, WIDTH, HEIGHT));
-//		imageView.setFitHeight(32);
-//		imageView.setFitWidth(32);
 		imageView.setScaleX(0.50);
 		imageView.setScaleY(0.50);
 		imageView.setX(x - 22);
 		imageView.setY(y - 27);
 
+		animationPlayer = new AnimationPlayer(this);
 		
-		
-		this.right = new SpriteAnimation(imageView, Duration.millis(400), COUNTRIGHTLEFT, COLUMNS, 0, 0, WIDTH, HEIGHT, viewRightLeft, 1);
-		this.left = new SpriteAnimation(imageView, Duration.millis(400), COUNTRIGHTLEFT, COLUMNS, 0, 0, WIDTH, HEIGHT, viewRightLeft, -1);
+		this.right = new SpriteAnimation(imageView, Duration.millis(400), COUNTRIGHTLEFT, COLUMNS, WIDTH, HEIGHT, viewRightLeft, 1);
+		this.left = new SpriteAnimation(imageView, Duration.millis(400), COUNTRIGHTLEFT, COLUMNS, WIDTH, HEIGHT, viewRightLeft, -1);
 		
 	}
 	
+	@SuppressWarnings("unused")
 	private ImageView makeImageView() {
 		ImageView imageView = new ImageView(IMAGE);
 		imageView.setViewport(new Rectangle2D(0, 0, WIDTH, HEIGHT));
@@ -77,12 +74,32 @@ public class BlockPlayer extends Block {
 		return (y - Level.getMap().getPosY()) / 20;
 	}
 
-	public void playRight() {
-		right.play();
+	public void goRight() {
+		if (animationPlayer.getStatus()) {
+			animationPlayer.goRight();
+			right.play();
+		}
 	}
 	
-	public void playLeft() {
-		left.play();
+	public void goLeft() {
+		if (animationPlayer.getStatus()) {
+			animationPlayer.goLeft();
+			left.play();
+		}
+	}
+	
+	public void goUp() {
+		if (animationPlayer.getStatus()) {
+			animationPlayer.goUp();
+			right.play();
+		}
+	}
+	
+	public void goDown() {
+		if (animationPlayer.getStatus()) {
+			animationPlayer.goDown();
+			right.play();
+		}
 	}
 	
 	@Override

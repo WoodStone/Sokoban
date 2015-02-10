@@ -8,61 +8,60 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
+import no.vestein.sokoban.blocks.BlockPlayer;
 import no.vestein.sokoban.level.Level;
 
 public class AnimationPlayer {
 
-	private static Timeline up;
-	private static Timeline down;
-	private static Timeline right;
-	private static Timeline left;
+	private Timeline up;
+	private Timeline down;
+	private Timeline right;
+	private Timeline left;
+	private BlockPlayer player;
 	
-	public static void init() {
+	public AnimationPlayer(BlockPlayer player) {
+		this.player = player;
 		up();
 		down();
 		right();
 		left();
 	}
 	
-	private static boolean getStatus() {
+	public boolean getStatus() {
 		return up.getStatus() == Status.STOPPED &&
 				down.getStatus() == Status.STOPPED &&
 				right.getStatus() == Status.STOPPED &&
 				left.getStatus() == Status.STOPPED;
 	}
 	
-	public static void goUp() {
+	public void goUp() {
 		if (getStatus()) {
 			up.playFromStart();
-			Level.getMap().getPlayer().playRight();
 		}
 	}
 	
-	public static void goDown() {
+	public void goDown() {
 		if (getStatus()) {
 			down.playFromStart();
-			Level.getMap().getPlayer().playRight();
 		}
 	}
 	
-	public static void goRight() {
+	public void goRight() {
 		if (getStatus()) {
 			right.playFromStart();
-			Level.getMap().getPlayer().playRight();
 		}
 	}
 	
-	public static void goLeft() {
+	public void goLeft() {
 		if (getStatus()) {
 			left.playFromStart();
-			Level.getMap().getPlayer().playLeft();
 		}
 	}
 	
 	
-	public static Timeline setAnimation(int dirX, int dirY) {
+	private Timeline setAnimation(int dirX, int dirY) {
 		Timeline timeline = new Timeline();
-		ImageView node = Level.getMap().getPlayer().getObject();
+		ImageView node = player.getObject();
 		
 		timeline.getKeyFrames().clear();
 		timeline.getKeyFrames().add(
@@ -73,7 +72,7 @@ public class AnimationPlayer {
 		return timeline;
 	}
 	
-	public static void up() {
+	private void up() {
 		up = setAnimation( 0, -1);
 		up.setOnFinished(new EventHandler<ActionEvent>() {	
 			@Override
@@ -82,12 +81,11 @@ public class AnimationPlayer {
 				Level.getMap().getPlayer().setYPosition(Level.getMap().getPlayer().getYPosition() - 1);
 				Level.getMap().getPlayer().getObject().setTranslateX(0);
 				Level.getMap().getPlayer().getObject().setTranslateY(0);
-//				MoveController.movePlayer(0, -1);
 			}
 		});
 	}
 	
-	public static void down() {
+	private void down() {
 		down = setAnimation(0, 1);
 		down.setOnFinished(new EventHandler<ActionEvent>() {	
 			@Override
@@ -96,12 +94,11 @@ public class AnimationPlayer {
 				Level.getMap().getPlayer().setYPosition(Level.getMap().getPlayer().getYPosition() + 1);
 				Level.getMap().getPlayer().getObject().setTranslateX(0);
 				Level.getMap().getPlayer().getObject().setTranslateY(0);
-//				MoveController.movePlayer(0, 1);
 			}
 		});
 	}
 	
-	public static void right() {
+	private void right() {
 		right = setAnimation(1, 0);
 		right.setOnFinished(new EventHandler<ActionEvent>() {	
 			@Override
@@ -110,12 +107,11 @@ public class AnimationPlayer {
 				Level.getMap().getPlayer().setYPosition(Level.getMap().getPlayer().getYPosition() + 0);
 				Level.getMap().getPlayer().getObject().setTranslateX(0);
 				Level.getMap().getPlayer().getObject().setTranslateY(0);
-//				MoveController.movePlayer(1, 0);
 			}
 		});
 	}
 	
-	public static void left() {
+	private void left() {
 		left = setAnimation(-1, 0);
 		left.setOnFinished(new EventHandler<ActionEvent>() {	
 			@Override
@@ -124,7 +120,6 @@ public class AnimationPlayer {
 				Level.getMap().getPlayer().setYPosition(Level.getMap().getPlayer().getYPosition() + 0);
 				Level.getMap().getPlayer().getObject().setTranslateX(0);
 				Level.getMap().getPlayer().getObject().setTranslateY(0);
-//				MoveController.movePlayer(-1, 0);
 			}
 		});
 	}
