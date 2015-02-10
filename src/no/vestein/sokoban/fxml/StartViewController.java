@@ -18,6 +18,11 @@ public class StartViewController {
 		SokobanScene.levelEditor();
 	}
 	
+//	@FXML
+//	private void quitButtonPressed() {
+//		SokobanScene.startView.getScene().getWindow().hide();
+//	}
+	
 	@FXML
 	public void mouseEntered(MouseEvent mouseEvent) {
 		Text text = (Text) mouseEvent.getSource();

@@ -33,7 +33,7 @@
             <Font size="25.0" />
          </font>
       </Text>
-      <Text fill="LIGHTBLUE" layoutX="210.0" layoutY="362.0" onMouseClicked="#backButtonPressed" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" strokeType="OUTSIDE" strokeWidth="0.0" text="Back">
+      <Text fill="LIGHTBLUE" layoutX="215.0" layoutY="361.0" onMouseClicked="#backButtonPressed" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" strokeType="OUTSIDE" strokeWidth="0.0" text="Back">
          <font>
             <Font size="30.0" />
          </font>
