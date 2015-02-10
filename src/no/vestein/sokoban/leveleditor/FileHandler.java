@@ -49,7 +49,7 @@ public class FileHandler {
 	}
 	
 	public static char[][] loadLevel(String filename) throws FileNotFoundException {
-		InputStream io = Main.class.getResourceAsStream("/no/vestein/sokoban/map/levels/" + filename);
+		InputStream io = Main.class.getResourceAsStream("/no/vestein/sokoban/level/levels/" + filename);
 		return readLevelFile(io);
 	}
 	

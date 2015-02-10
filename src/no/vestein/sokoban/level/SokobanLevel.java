@@ -1,4 +1,4 @@
-package no.vestein.sokoban.map;
+package no.vestein.sokoban.level;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -86,9 +86,12 @@ public class SokobanLevel {
 				}
 			}
 		}
+//		Group test = new Group();
+//		test.getChildren().addAll(goalGroup, boxGroup, getPlayer().getObject());
 		SokobanScene.gameView.getChildren().add(goalGroup);
 		SokobanScene.gameView.getChildren().add(boxGroup);
 		SokobanScene.gameView.getChildren().add(getPlayer().getObject());
+//		SokobanScene.gameView.getChildren().add(test);
 	}
 	
 	private Map<String, Block> generateObjectMap() {

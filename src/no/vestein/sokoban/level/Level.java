@@ -1,4 +1,4 @@
-package no.vestein.sokoban.map;
+package no.vestein.sokoban.level;
 
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
@@ -13,6 +13,9 @@ public class Level {
 		objectMap = new SokobanLevel(50, 60, level);
 		makeGrid();
 		objectMap.loadLevel();
+		
+//		System.out.println(objectMap.getPlayer().getXPosition() + ":" + objectMap.getPlayer().getYPosition());
+//		System.out.println(objectMap.getBlock(0, 0).getXPosition());
 	}
 	
 	public static SokobanLevel getMap() {
@@ -28,7 +31,7 @@ public class Level {
 		
 		for (int i = 0; i < 20; i++) {
 			for (int j = 0; j < 20; j++) {
-				BlockGrid blockGrid = new BlockGrid(j * 20 + Level.getMap().getPosX(), i * 20 + Level.getMap().getPosY());
+				BlockGrid blockGrid = new BlockGrid(j * 20 + objectMap.getPosX(), i * 20 + objectMap.getPosY());
 				blockGrid.setStroke(Color.rgb(169, 169, 169, 0.20));
 				gridGroup.getChildren().add(blockGrid);
 			}
