@@ -1,5 +1,6 @@
 package no.vestein.sokoban.blocks;
 
+import no.vestein.sokoban.map.Level;
 import javafx.scene.shape.Shape;
 
 
@@ -13,12 +14,12 @@ public class Block{
 	}
 	
 	public int getXPosition() {
-		return (x - 50) / 20;
+		return (x - Level.getMap().getPosX()) / 20;
 		
 	}
 	
 	public int getYPosition() {
-		return (y - 50) / 20;
+		return (y - Level.getMap().getPosY()) / 20;
 	}
 	
 	public Shape getObject() {

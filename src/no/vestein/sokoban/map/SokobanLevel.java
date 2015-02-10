@@ -29,6 +29,14 @@ public class SokobanLevel {
 		
 	}
 	
+	public int getPosY() {
+		return posY;
+	}
+	
+	public int getPosX() {
+		return posX;
+	}
+	
 	public Map<String, Block> getObjectMap() {
 		return objectMap;
 	}
