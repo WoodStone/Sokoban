@@ -8,8 +8,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import no.vestein.sokoban.SokobanScene;
-import no.vestein.sokoban.map.Level;
-import no.vestein.sokoban.map.MoveController;
+import no.vestein.sokoban.level.Level;
+import no.vestein.sokoban.level.MoveController;
 
 public class GameViewController {
 	

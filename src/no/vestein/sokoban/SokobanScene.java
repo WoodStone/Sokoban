@@ -1,11 +1,11 @@
 package no.vestein.sokoban;
 
-//import no.vestein.sokoban.animation.AnimationPlayer;
+import no.vestein.sokoban.animation.AnimationPlayer;
 //import no.vestein.sokoban.animation.SokobanAnimation;
 import no.vestein.sokoban.animation.Background;
 import no.vestein.sokoban.fxml.GameViewController;
+import no.vestein.sokoban.level.Level;
 import no.vestein.sokoban.leveleditor.LevelEditor;
-import no.vestein.sokoban.map.Level;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -99,7 +99,7 @@ public class SokobanScene {
 		GameViewController.init();
 		Level.loadLevel(level);
 //		SokobanAnimation.init();
-//		AnimationPlayer.init();
+		AnimationPlayer.init();
 		
 	}
 	

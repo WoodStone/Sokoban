@@ -1,6 +1,6 @@
 package no.vestein.sokoban.blocks;
 
-import no.vestein.sokoban.map.Level;
+import no.vestein.sokoban.level.Level;
 import javafx.scene.shape.Ellipse;
 
 public class BlockEllipse extends Block {

@@ -6,9 +6,9 @@ import javafx.animation.Timeline;
 import javafx.animation.Animation.Status;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.shape.Ellipse;
+import javafx.scene.image.ImageView;
 import javafx.util.Duration;
-import no.vestein.sokoban.map.Level;
+import no.vestein.sokoban.level.Level;
 
 public class AnimationPlayer {
 
@@ -24,38 +24,49 @@ public class AnimationPlayer {
 		left();
 	}
 	
+	private static boolean getStatus() {
+		return up.getStatus() == Status.STOPPED &&
+				down.getStatus() == Status.STOPPED &&
+				right.getStatus() == Status.STOPPED &&
+				left.getStatus() == Status.STOPPED;
+	}
+	
 	public static void goUp() {
-		if (up.getStatus() == Status.STOPPED) {
+		if (getStatus()) {
 			up.playFromStart();
+			Level.getMap().getPlayer().playRight();
 		}
 	}
 	
 	public static void goDown() {
-		if (down.getStatus() == Status.STOPPED) {
+		if (getStatus()) {
 			down.playFromStart();
+			Level.getMap().getPlayer().playRight();
 		}
 	}
 	
 	public static void goRight() {
-		if (right.getStatus() == Status.STOPPED) {
+		if (getStatus()) {
 			right.playFromStart();
+			Level.getMap().getPlayer().playRight();
 		}
 	}
 	
 	public static void goLeft() {
-		if (left.getStatus() == Status.STOPPED) {
+		if (getStatus()) {
 			left.playFromStart();
+			Level.getMap().getPlayer().playLeft();
 		}
 	}
 	
 	
 	public static Timeline setAnimation(int dirX, int dirY) {
 		Timeline timeline = new Timeline();
-		Ellipse node = Level.getMap().getPlayer().getObject();
+		ImageView node = Level.getMap().getPlayer().getObject();
 		
 		timeline.getKeyFrames().clear();
 		timeline.getKeyFrames().add(
-			        new KeyFrame(new Duration(250),
+			        new KeyFrame(new Duration(400),
 			        	new KeyValue(node.translateXProperty(), 20 * dirX),
 			            new KeyValue(node.translateYProperty(), 20 * dirY)
 			        ));

@@ -1,6 +1,8 @@
 package no.vestein.sokoban.blocks;
 
-import no.vestein.sokoban.map.Level;
+import no.vestein.sokoban.level.Level;
+import javafx.scene.Node;
+import javafx.scene.image.ImageView;
 import javafx.scene.shape.Shape;
 
 
@@ -22,7 +24,7 @@ public class Block{
 		return (y - Level.getMap().getPosY()) / 20;
 	}
 	
-	public Shape getObject() {
+	public Node getObject() {
 		return null;
 	}
 	
