@@ -2,9 +2,7 @@ package no.vestein.sokoban.fxml;
 
 import java.io.FileNotFoundException;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Labeled;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
