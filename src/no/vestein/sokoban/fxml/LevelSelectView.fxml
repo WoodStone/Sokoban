@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -7,10 +8,35 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.vestein.sokoban.fxml.LevelSelectViewController">
    <children>
-      <Button layoutX="220.0" layoutY="198.0" mnemonicParsing="false" onAction="#levelButtonPressed" text="Level 1" />
-      <Button layoutX="220.0" layoutY="224.0" mnemonicParsing="false" onAction="#levelButtonPressed" text="Level 2" />
-      <Button layoutX="220.0" layoutY="250.0" mnemonicParsing="false" onAction="#levelButtonPressed" text="Level 3" />
-      <Button layoutX="184.0" layoutY="302.0" mnemonicParsing="false" onAction="#customLevelButtonPressed" text="Load Custom Level" />
-      <Button layoutX="220.0" layoutY="276.0" mnemonicParsing="false" onAction="#levelButtonPressed" text="Level 4" />
+      <Text fill="LIGHTBLUE" layoutX="210.0" layoutY="199.0" onMouseClicked="#levelButtonPressed" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" strokeType="OUTSIDE" strokeWidth="0.0" text="Level 1">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fill="LIGHTBLUE" layoutX="210.0" layoutY="228.0" onMouseClicked="#levelButtonPressed" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" strokeType="OUTSIDE" strokeWidth="0.0" text="Level 2">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fill="LIGHTBLUE" layoutX="188.0" layoutY="311.0" onMouseClicked="#customLevelButtonPressed" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" strokeType="OUTSIDE" strokeWidth="0.0" text="Custom Level">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="LIGHTBLUE" layoutX="210.0" layoutY="257.0" onMouseClicked="#levelButtonPressed" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" strokeType="OUTSIDE" strokeWidth="0.0" text="Level 3">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fill="LIGHTBLUE" layoutX="210.0" layoutY="286.0" onMouseClicked="#levelButtonPressed" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" strokeType="OUTSIDE" strokeWidth="0.0" text="Level 4">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fill="LIGHTBLUE" layoutX="210.0" layoutY="362.0" onMouseClicked="#backButtonPressed" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" strokeType="OUTSIDE" strokeWidth="0.0" text="Back">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
