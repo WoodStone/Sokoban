@@ -82,7 +82,7 @@ public class Background {
 				Random r = new Random();
 				for (Node rect : rectangles.getChildren()) {
 					timeline.getKeyFrames().addAll(
-						new KeyFrame(new Duration(r.nextInt(5) * 5000),
+						new KeyFrame(new Duration(r.nextInt(4) * 5000),
 							new KeyValue(rect.translateXProperty(), r.nextInt(500)),
 							new KeyValue(rect.translateYProperty(), r.nextInt(500))
 						),
