@@ -39,13 +39,12 @@ public class Background {
 			int col3 = r.nextInt(256);
 			
 			rect.setStroke(Color.rgb(col1, col2, col3));
-			
 			rectangles.getChildren().add(rect);
 		}
 		rectangles.setEffect(new BoxBlur(10, 10, 3));	
 		
-		root.getChildren().addAll(new Rectangle(SokobanScene.scene.getWidth(), SokobanScene.scene.getHeight(), Color.BLACK), rectangles);
-			
+		root.getChildren().addAll(new Rectangle(SokobanScene.scene.getWidth(), SokobanScene.scene.getHeight(), Color.WHITESMOKE), rectangles);
+		
 		timeline = new Timeline();
 		for (Node circle: rectangles.getChildren()) {
 		    timeline.getKeyFrames().addAll(
@@ -67,12 +66,12 @@ public class Background {
 		        )
 		    );
 		}
-		timeline.setOnFinished(getEvent());
+		timeline.setOnFinished(event());
 		timeline.play();
 		SokobanScene.root.getChildren().add(root);
 	}
 	
-	public static EventHandler<ActionEvent> getEvent() {
+	public static EventHandler<ActionEvent> event() {
 		return new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -94,7 +93,7 @@ public class Background {
 						)
 					);
 				}
-				timeline.setOnFinished(getEvent());
+				timeline.setOnFinished(event());
 				timeline.playFromStart();
 			}
 		};

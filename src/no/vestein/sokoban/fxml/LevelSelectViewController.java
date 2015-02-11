@@ -28,13 +28,13 @@ public class LevelSelectViewController {
 	@FXML
 	public void mouseEntered(MouseEvent mouseEvent) {
 		Text text = (Text) mouseEvent.getSource();
-		text.setFill(Color.AQUA);
+		text.setFill(Color.BLUE);
 	}
 	
 	@FXML
 	public void mouseExited(MouseEvent mouseEvent) {
 		Text text = (Text) mouseEvent.getSource();
-		text.setFill(Color.LIGHTBLUE);
+		text.setFill(Color.DARKBLUE);
 	}
 	
 }

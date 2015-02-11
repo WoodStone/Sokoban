@@ -28,7 +28,7 @@ public class Level {
 		for (int i = 0; i < 20; i++) {
 			for (int j = 0; j < 20; j++) {
 				BlockGrid blockGrid = new BlockGrid(j * 20 + objectMap.getPosX(), i * 20 + objectMap.getPosY());
-				blockGrid.setStroke(Color.rgb(169, 169, 169, 0.20));
+				blockGrid.setStroke(Color.rgb(128, 128, 128, 0.50));
 				gridGroup.getChildren().add(blockGrid);
 			}
 		}

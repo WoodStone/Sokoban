@@ -8,12 +8,12 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.vestein.sokoban.fxml.GameViewController">
    <children>
-      <Text fill="LIGHTBLUE" layoutX="14.0" layoutY="38.0" onMouseClicked="#menuButtonPressed" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" strokeType="OUTSIDE" strokeWidth="0.0" text="Menu">
+      <Text fill="DARKBLUE" layoutX="14.0" layoutY="38.0" onMouseClicked="#menuButtonPressed" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" strokeType="OUTSIDE" strokeWidth="0.0" text="Menu">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <Text fill="LIGHTBLUE" layoutX="89.0" layoutY="38.0" onMouseClicked="#restartButtonPressed" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" strokeType="OUTSIDE" strokeWidth="0.0" text="Restart">
+      <Text fill="DARKBLUE" layoutX="89.0" layoutY="38.0" onMouseClicked="#restartButtonPressed" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" strokeType="OUTSIDE" strokeWidth="0.0" text="Restart">
          <font>
             <Font size="25.0" />
          </font>

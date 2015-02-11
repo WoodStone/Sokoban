@@ -9,12 +9,12 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.vestein.sokoban.fxml.StartViewController">
    <children>
-      <Text fill="LIGHTBLUE" layoutX="159.0" layoutY="263.0" onMouseClicked="#startButtonPressed" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Game">
+      <Text fill="DARKBLUE" layoutX="159.0" layoutY="263.0" onMouseClicked="#startButtonPressed" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Game">
          <font>
             <Font size="35.0" />
          </font>
       </Text>
-      <Text fill="LIGHTBLUE" layoutX="196.0" layoutY="303.0" onMouseClicked="#levelEditorButtonPressed" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" strokeType="OUTSIDE" strokeWidth="0.0" text="Level Editor">
+      <Text fill="DARKBLUE" layoutX="196.0" layoutY="303.0" onMouseClicked="#levelEditorButtonPressed" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" strokeType="OUTSIDE" strokeWidth="0.0" text="Level Editor">
          <font>
             <Font size="20.0" />
          </font>

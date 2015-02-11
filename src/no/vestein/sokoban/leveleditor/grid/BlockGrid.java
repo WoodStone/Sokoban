@@ -13,7 +13,9 @@ public class BlockGrid extends Rectangle{
 	public BlockGrid(int x, int y) {
 		super(x, y, 20, 20);
 //		this.setFill(Color.LIGHTGRAY);
-		this.setFill(Color.rgb(227, 227, 227, 0.15));
+//		this.setFill(Color.LIGH);
+//		this.setFill(Color.rgb(227, 227, 227, 0.50));
+		this.setFill(Color.rgb(128, 128, 128, 0.15));
 		this.setStroke(Color.DARKGRAY);
 		this.tag = '0';
 		

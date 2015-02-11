@@ -40,7 +40,6 @@ public class FileHandler {
 		fileChooser.setInitialDirectory(new File(filepath));
 		
 		File file = fileChooser.showOpenDialog(SokobanScene.primaryStage);
-		System.out.println(file.getPath());
 
 		return readLevelFile(file);
 	}
