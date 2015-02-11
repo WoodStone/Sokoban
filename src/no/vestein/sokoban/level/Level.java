@@ -13,9 +13,6 @@ public class Level {
 		objectMap = new SokobanLevel(50, 60, level);
 		makeGrid();
 		objectMap.loadLevel();
-		
-//		System.out.println(objectMap.getPlayer().getXPosition() + ":" + objectMap.getPlayer().getYPosition());
-//		System.out.println(objectMap.getBlock(0, 0).getXPosition());
 	}
 	
 	public static SokobanLevel getMap() {
@@ -28,7 +25,6 @@ public class Level {
 	
 	private static void makeGrid() {
 		Group gridGroup = new Group();
-		
 		for (int i = 0; i < 20; i++) {
 			for (int j = 0; j < 20; j++) {
 				BlockGrid blockGrid = new BlockGrid(j * 20 + objectMap.getPosX(), i * 20 + objectMap.getPosY());
@@ -36,7 +32,6 @@ public class Level {
 				gridGroup.getChildren().add(blockGrid);
 			}
 		}
-		
 		SokobanScene.gameView.getChildren().add(gridGroup);
 	}
 	

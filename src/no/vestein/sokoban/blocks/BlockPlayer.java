@@ -14,7 +14,7 @@ import javafx.util.Duration;
 
 public class BlockPlayer extends Block {
 	
-	private final Image IMAGE = new Image(Main.class.getResourceAsStream("Player.png"));
+	private final Image IMAGE = new Image(Main.class.getResourceAsStream("resources/Player.png"));
 	private final int WIDTH = 64;
 	private final int HEIGHT = 64;
 	private final int COLUMNS = 4;

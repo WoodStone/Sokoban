@@ -15,7 +15,6 @@ public class FileHandler {
 
 	public static void saveDialog(char[][] level) throws FileNotFoundException {
 		String filepath = System.getProperty("user.home");
-//		FilePermission perm = new FilePermission(filepath, "write");
 		
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("Save Level File");
@@ -31,12 +30,10 @@ public class FileHandler {
 			output.println("");
 		}
 		output.close();
-		
 	}
 	
 	public static char[][] loadDialog() throws FileNotFoundException {
 		String filepath = System.getProperty("user.home");
-//		FilePermission perm = new FilePermission(filepath, "read");
 		
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("Open Level File");
@@ -68,7 +65,6 @@ public class FileHandler {
 		int yPos = 0;
 		while (scanner.hasNextLine()) {
 			String line = scanner.nextLine();
-			
 			for (int i = 0; i < line.length(); i++) {
 				newLevel[yPos][i] = line.charAt(i);
 			}

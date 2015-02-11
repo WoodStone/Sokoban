@@ -14,7 +14,6 @@ import no.vestein.sokoban.level.MoveController;
 public class GameViewController {
 	
 	public static void init() {
-		
 		SokobanScene.gameView.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent keyevent) {
@@ -24,7 +23,6 @@ public class GameViewController {
 				MoveController.checkKeyPressed(keyevent);
 			}
 		});
-		
 	}
 	
 	@FXML

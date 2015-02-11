@@ -13,12 +13,9 @@ public class LevelEditor {
 	public static Group gridGroup;
 	public static Group toolsGroup;
 	public static Text toolTooltip;
-	
 	public static BlockTool selectedBlockTool;
-	
 	public static char[][] level = new char[20][20];
 	
-
 	public static void init() {
 		setupGrid();
 		setupBlocks();
@@ -55,7 +52,6 @@ public class LevelEditor {
 	
 	private static void setupGrid() {
 		gridGroup = new Group();
-		
 		for (int i = 0; i < 20; i++) {
 			for (int j = 0; j < 20; j++) {
 				BlockGrid blockGrid = new BlockGrid(j * 20 + 50, i * 20 + 80);
@@ -63,7 +59,6 @@ public class LevelEditor {
 				level[i][j] = '0';
 			}
 		}
-		
 		SokobanScene.levelEditorView.getChildren().add(gridGroup);
 	}
 	

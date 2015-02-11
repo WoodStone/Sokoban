@@ -67,9 +67,7 @@ public class Background {
 		        )
 		    );
 		}
-		
 		timeline.setOnFinished(getEvent());
-		
 		timeline.play();
 		SokobanScene.root.getChildren().add(root);
 	}

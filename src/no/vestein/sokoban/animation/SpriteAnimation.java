@@ -15,10 +15,10 @@ public class SpriteAnimation extends Transition {
     private final int columns;
     private final int width;
     private final int height;
-
+    private final List<Integer> view;
+    private final int dir;
+    
     private int lastIndex;
-    private List<Integer> view;
-    private int dir;
 
     public SpriteAnimation(
             ImageView imageView, 
@@ -26,26 +26,25 @@ public class SpriteAnimation extends Transition {
             int count,   int columns,
             int width,   int height,
             List<Integer> view, int dir) {
-        this.imageView = imageView;
+    	this.imageView = imageView;
         this.count     = count;
         this.columns   = columns;
         this.width     = width;
         this.height    = height;
-        setCycleDuration(duration);
-        setInterpolator(Interpolator.LINEAR);
         this.dir = dir;
         this.view = view;
+        setCycleDuration(duration);
+        setInterpolator(Interpolator.LINEAR);
     }
 
     protected void interpolate(double k) {
-    	
-        final int index = Math.min((int) Math.floor(k * count), count - 1);
-        if (index != lastIndex) {
-            final int x = (view.get(index) % columns) * width;
-            final int y = (view.get(index) / columns) * height;
-            imageView.setViewport(new Rectangle2D(x, y, width, height));
-            imageView.setScaleX(0.5 * dir);
-            lastIndex = index;
-        }
+    	final int index = Math.min((int) Math.floor(k * count), count - 1);
+    	if (index != lastIndex) {
+    		final int x = (view.get(index) % columns) * width;
+    		final int y = (view.get(index) / columns) * height;
+    		imageView.setViewport(new Rectangle2D(x, y, width, height));
+    		imageView.setScaleX(0.5 * dir);
+    		lastIndex = index;
+    	}
     }
 }
