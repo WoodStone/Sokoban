@@ -45,9 +45,10 @@ public class BlockPlayer extends Block {
 		
 		this.right = new SpriteAnimation(imageView, Duration.millis(400), COUNTRIGHTLEFT, COLUMNS, WIDTH, HEIGHT, FRAMESLEFTRIGHT, 1);
 		this.left = new SpriteAnimation(imageView, Duration.millis(400), COUNTRIGHTLEFT, COLUMNS, WIDTH, HEIGHT, FRAMESLEFTRIGHT, -1);
-		this.up = new SpriteAnimation(imageView, Duration.millis(400), COUNTUPDOWN, COLUMNS, WIDTH, HEIGHT, FRAMESUPDOWN, 1);
-		this.down = new SpriteAnimation(imageView, Duration.millis(400), COUNTUPDOWN, COLUMNS, WIDTH, HEIGHT, FRAMESUPDOWN, 1);
-		
+//		this.up = new SpriteAnimation(imageView, Duration.millis(400), COUNTUPDOWN, COLUMNS, WIDTH, HEIGHT, FRAMESUPDOWN, 1);
+//		this.down = new SpriteAnimation(imageView, Duration.millis(400), COUNTUPDOWN, COLUMNS, WIDTH, HEIGHT, FRAMESUPDOWN, 1);
+		this.up = new SpriteAnimation(imageView, Duration.millis(400), COUNTRIGHTLEFT, COLUMNS, WIDTH, HEIGHT, FRAMESLEFTRIGHT, 1);
+		this.down = new SpriteAnimation(imageView, Duration.millis(400), COUNTRIGHTLEFT, COLUMNS, WIDTH, HEIGHT, FRAMESLEFTRIGHT, 1);
 	}
 	
 	@SuppressWarnings("unused")
@@ -104,11 +105,13 @@ public class BlockPlayer extends Block {
 	
 	public void goUp() {
 		animationPlayer.goUp();
+		up.setDir((int) (imageView.getScaleX() * 2));
 		up.play();
 	}
 	
 	public void goDown() {
 		animationPlayer.goDown();
+		down.setDir((int) (imageView.getScaleX() * 2));
 		down.play();
 	}
 	

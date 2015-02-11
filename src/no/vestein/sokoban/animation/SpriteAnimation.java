@@ -16,7 +16,7 @@ public class SpriteAnimation extends Transition {
     private final int width;
     private final int height;
     private final List<Integer> view;
-    private final int dir;
+    private int dir;
     
     private int lastIndex;
 
@@ -35,6 +35,10 @@ public class SpriteAnimation extends Transition {
         this.view = view;
         setCycleDuration(duration);
         setInterpolator(Interpolator.LINEAR);
+    }
+    
+    public void setDir(int dir) {
+    	this.dir = dir;
     }
 
     protected void interpolate(double k) {

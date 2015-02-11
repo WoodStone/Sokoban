@@ -60,10 +60,10 @@ public class AnimationPlayer {
 		up.setOnFinished(new EventHandler<ActionEvent>() {	
 			@Override
 			public void handle(ActionEvent event) {
-				Level.getMap().getPlayer().setXPosition(Level.getMap().getPlayer().getXPosition() + 0);
-				Level.getMap().getPlayer().setYPosition(Level.getMap().getPlayer().getYPosition() - 1);
-				Level.getMap().getPlayer().getObject().setTranslateX(0);
-				Level.getMap().getPlayer().getObject().setTranslateY(0);
+				player.setXPosition(player.getXPosition() + 0);
+				player.setYPosition(player.getYPosition() - 1);
+				player.getObject().setTranslateX(0);
+				player.getObject().setTranslateY(0);
 				player.setMoving(false);
 			}
 		});
@@ -74,10 +74,10 @@ public class AnimationPlayer {
 		down.setOnFinished(new EventHandler<ActionEvent>() {	
 			@Override
 			public void handle(ActionEvent event) {
-				Level.getMap().getPlayer().setXPosition(Level.getMap().getPlayer().getXPosition() + 0);
-				Level.getMap().getPlayer().setYPosition(Level.getMap().getPlayer().getYPosition() + 1);
-				Level.getMap().getPlayer().getObject().setTranslateX(0);
-				Level.getMap().getPlayer().getObject().setTranslateY(0);
+				player.setXPosition(player.getXPosition() + 0);
+				player.setYPosition(player.getYPosition() + 1);
+				player.getObject().setTranslateX(0);
+				player.getObject().setTranslateY(0);
 				player.setMoving(false);
 			}
 		});
@@ -88,10 +88,10 @@ public class AnimationPlayer {
 		right.setOnFinished(new EventHandler<ActionEvent>() {	
 			@Override
 			public void handle(ActionEvent event) {
-				Level.getMap().getPlayer().setXPosition(Level.getMap().getPlayer().getXPosition() + 1);
-				Level.getMap().getPlayer().setYPosition(Level.getMap().getPlayer().getYPosition() + 0);
-				Level.getMap().getPlayer().getObject().setTranslateX(0);
-				Level.getMap().getPlayer().getObject().setTranslateY(0);
+				player.setXPosition(player.getXPosition() + 1);
+				player.setYPosition(player.getYPosition() + 0);
+				player.getObject().setTranslateX(0);
+				player.getObject().setTranslateY(0);
 				player.setMoving(false);
 			}
 		});
@@ -102,10 +102,10 @@ public class AnimationPlayer {
 		left.setOnFinished(new EventHandler<ActionEvent>() {	
 			@Override
 			public void handle(ActionEvent event) {
-				Level.getMap().getPlayer().setXPosition(Level.getMap().getPlayer().getXPosition() - 1);
-				Level.getMap().getPlayer().setYPosition(Level.getMap().getPlayer().getYPosition() + 0);
-				Level.getMap().getPlayer().getObject().setTranslateX(0);
-				Level.getMap().getPlayer().getObject().setTranslateY(0);
+				player.setXPosition(player.getXPosition() - 1);
+				player.setYPosition(player.getYPosition() + 0);
+				player.getObject().setTranslateX(0);
+				player.getObject().setTranslateY(0);
 				player.setMoving(false);
 			}
 		});
