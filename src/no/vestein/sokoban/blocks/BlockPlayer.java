@@ -13,19 +13,23 @@ import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 public class BlockPlayer extends Block {
-
-	private ImageView imageView;
+	
 	private final Image IMAGE = new Image(Main.class.getResourceAsStream("Player.png"));
 	private final int WIDTH = 64;
 	private final int HEIGHT = 64;
 	private final int COLUMNS = 4;
-	private final List<Integer> viewRightLeft = Arrays.asList(1, 2, 3, 0);
-	private final int COUNTRIGHTLEFT = viewRightLeft.size();
+	private final List<Integer> FRAMESLEFTRIGHT = Arrays.asList(1, 2, 3, 0);
+	private final List<Integer> FRAMESUPDOWN = Arrays.asList(12, 15, 0);
+	private final int COUNTRIGHTLEFT = FRAMESLEFTRIGHT.size();
+	private final int COUNTUPDOWN = FRAMESUPDOWN.size();
 	
 	private SpriteAnimation right;
 	private SpriteAnimation left;
-	
+	private SpriteAnimation up;
+	private SpriteAnimation down;
+	private ImageView imageView;
 	private AnimationPlayer animationPlayer;
+	private boolean moving = false;
 	
 	public BlockPlayer(int x, int y) {
 		super(x, y);
@@ -39,8 +43,10 @@ public class BlockPlayer extends Block {
 
 		animationPlayer = new AnimationPlayer(this);
 		
-		this.right = new SpriteAnimation(imageView, Duration.millis(400), COUNTRIGHTLEFT, COLUMNS, WIDTH, HEIGHT, viewRightLeft, 1);
-		this.left = new SpriteAnimation(imageView, Duration.millis(400), COUNTRIGHTLEFT, COLUMNS, WIDTH, HEIGHT, viewRightLeft, -1);
+		this.right = new SpriteAnimation(imageView, Duration.millis(400), COUNTRIGHTLEFT, COLUMNS, WIDTH, HEIGHT, FRAMESLEFTRIGHT, 1);
+		this.left = new SpriteAnimation(imageView, Duration.millis(400), COUNTRIGHTLEFT, COLUMNS, WIDTH, HEIGHT, FRAMESLEFTRIGHT, -1);
+		this.up = new SpriteAnimation(imageView, Duration.millis(400), COUNTUPDOWN, COLUMNS, WIDTH, HEIGHT, FRAMESUPDOWN, 1);
+		this.down = new SpriteAnimation(imageView, Duration.millis(400), COUNTUPDOWN, COLUMNS, WIDTH, HEIGHT, FRAMESUPDOWN, 1);
 		
 	}
 	
@@ -73,33 +79,45 @@ public class BlockPlayer extends Block {
 	public int getYPosition() {
 		return (y - Level.getMap().getPosY()) / 20;
 	}
+	
+	public void goDir(int dirX, int dirY) {
+		if (dirX == 1) {
+			goRight();
+		} else if (dirX == -1) {
+			goLeft();
+		} else if (dirY == 1) {
+			goDown();
+		} else if (dirY == -1) {
+			goUp();
+		}
+	}
 
 	public void goRight() {
-		if (animationPlayer.getStatus()) {
-			animationPlayer.goRight();
-			right.play();
-		}
+		animationPlayer.goRight();
+		right.play();
 	}
 	
 	public void goLeft() {
-		if (animationPlayer.getStatus()) {
-			animationPlayer.goLeft();
-			left.play();
-		}
+		animationPlayer.goLeft();
+		left.play();
 	}
 	
 	public void goUp() {
-		if (animationPlayer.getStatus()) {
-			animationPlayer.goUp();
-			right.play();
-		}
+		animationPlayer.goUp();
+		up.play();
 	}
 	
 	public void goDown() {
-		if (animationPlayer.getStatus()) {
-			animationPlayer.goDown();
-			right.play();
-		}
+		animationPlayer.goDown();
+		down.play();
+	}
+	
+	public void setMoving(boolean moving) {
+		this.moving = moving;
+	}
+	
+	public boolean getMoving() {
+		return moving;
 	}
 	
 	@Override

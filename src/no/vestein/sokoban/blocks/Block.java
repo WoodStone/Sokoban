@@ -2,9 +2,6 @@ package no.vestein.sokoban.blocks;
 
 import no.vestein.sokoban.level.Level;
 import javafx.scene.Node;
-import javafx.scene.image.ImageView;
-import javafx.scene.shape.Shape;
-
 
 public class Block{
 

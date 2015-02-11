@@ -3,7 +3,6 @@ package no.vestein.sokoban.animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.animation.Animation.Status;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.image.ImageView;
@@ -27,37 +26,21 @@ public class AnimationPlayer {
 		left();
 	}
 	
-	public boolean getStatus() {
-		return up.getStatus() == Status.STOPPED &&
-				down.getStatus() == Status.STOPPED &&
-				right.getStatus() == Status.STOPPED &&
-				left.getStatus() == Status.STOPPED;
-	}
-	
 	public void goUp() {
-		if (getStatus()) {
-			up.playFromStart();
-		}
+		up.playFromStart();
 	}
 	
 	public void goDown() {
-		if (getStatus()) {
-			down.playFromStart();
-		}
+		down.playFromStart();
 	}
 	
 	public void goRight() {
-		if (getStatus()) {
-			right.playFromStart();
-		}
+		right.playFromStart();
 	}
 	
 	public void goLeft() {
-		if (getStatus()) {
-			left.playFromStart();
-		}
+		left.playFromStart();
 	}
-	
 	
 	private Timeline setAnimation(int dirX, int dirY) {
 		Timeline timeline = new Timeline();
@@ -81,6 +64,7 @@ public class AnimationPlayer {
 				Level.getMap().getPlayer().setYPosition(Level.getMap().getPlayer().getYPosition() - 1);
 				Level.getMap().getPlayer().getObject().setTranslateX(0);
 				Level.getMap().getPlayer().getObject().setTranslateY(0);
+				player.setMoving(false);
 			}
 		});
 	}
@@ -94,6 +78,7 @@ public class AnimationPlayer {
 				Level.getMap().getPlayer().setYPosition(Level.getMap().getPlayer().getYPosition() + 1);
 				Level.getMap().getPlayer().getObject().setTranslateX(0);
 				Level.getMap().getPlayer().getObject().setTranslateY(0);
+				player.setMoving(false);
 			}
 		});
 	}
@@ -107,6 +92,7 @@ public class AnimationPlayer {
 				Level.getMap().getPlayer().setYPosition(Level.getMap().getPlayer().getYPosition() + 0);
 				Level.getMap().getPlayer().getObject().setTranslateX(0);
 				Level.getMap().getPlayer().getObject().setTranslateY(0);
+				player.setMoving(false);
 			}
 		});
 	}
@@ -120,6 +106,7 @@ public class AnimationPlayer {
 				Level.getMap().getPlayer().setYPosition(Level.getMap().getPlayer().getYPosition() + 0);
 				Level.getMap().getPlayer().getObject().setTranslateX(0);
 				Level.getMap().getPlayer().getObject().setTranslateY(0);
+				player.setMoving(false);
 			}
 		});
 	}

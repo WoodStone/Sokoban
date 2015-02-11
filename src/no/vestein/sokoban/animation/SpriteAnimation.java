@@ -17,7 +17,6 @@ public class SpriteAnimation extends Transition {
     private final int height;
 
     private int lastIndex;
-    private int[] test = {0, 1, 2, 3};
     private List<Integer> view;
     private int dir;
 
