@@ -57,11 +57,11 @@ public class Background {
 		            new KeyValue(circle.translateXProperty(), r.nextInt(500)),
 		            new KeyValue(circle.translateYProperty(), r.nextInt(500))
 		        ),
-		        new KeyFrame(new Duration(20000 + r.nextInt(4) * 5000),
+		        new KeyFrame(new Duration(20000 + r.nextInt(4) * 5000 + 5000),
 		        	new KeyValue(circle.translateXProperty(), r.nextInt(500)),
 		        	new KeyValue(circle.translateYProperty(), r.nextInt(500))
 		        ),
-		        new KeyFrame(new Duration(40000),
+		        new KeyFrame(new Duration(45000),
 		        	new KeyValue(circle.translateXProperty(), r.nextInt(500)),
 		        	new KeyValue(circle.translateYProperty(), r.nextInt(500))
 		        )
@@ -86,11 +86,11 @@ public class Background {
 							new KeyValue(rect.translateXProperty(), r.nextInt(500)),
 							new KeyValue(rect.translateYProperty(), r.nextInt(500))
 						),
-						new KeyFrame(new Duration(20000 + r.nextInt(4) * 5000),
+						new KeyFrame(new Duration(20000 + r.nextInt(4) * 5000 + 5000),
 							new KeyValue(rect.translateXProperty(), r.nextInt(500)),
 					        new KeyValue(rect.translateYProperty(), r.nextInt(500))
 						),
-						new KeyFrame(new Duration(40000),
+						new KeyFrame(new Duration(45000),
 							new KeyValue(rect.translateXProperty(), r.nextInt(500)),
 							new KeyValue(rect.translateYProperty(), r.nextInt(500))
 						)
