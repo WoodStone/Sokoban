@@ -8,7 +8,6 @@ import javafx.event.EventHandler;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import no.vestein.sokoban.blocks.BlockPlayer;
-import no.vestein.sokoban.level.Level;
 
 public class AnimationPlayer {
 

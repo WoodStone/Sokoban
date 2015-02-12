@@ -19,9 +19,7 @@ public class BlockPlayer extends Block {
 	private final int HEIGHT = 64;
 	private final int COLUMNS = 4;
 	private final List<Integer> FRAMESLEFTRIGHT = Arrays.asList(1, 2, 3, 0);
-	private final List<Integer> FRAMESUPDOWN = Arrays.asList(12, 15, 0);
 	private final int COUNTRIGHTLEFT = FRAMESLEFTRIGHT.size();
-	private final int COUNTUPDOWN = FRAMESUPDOWN.size();
 	
 	private SpriteAnimation right;
 	private SpriteAnimation left;
@@ -45,8 +43,6 @@ public class BlockPlayer extends Block {
 		
 		this.right = new SpriteAnimation(imageView, Duration.millis(400), COUNTRIGHTLEFT, COLUMNS, WIDTH, HEIGHT, FRAMESLEFTRIGHT, 1);
 		this.left = new SpriteAnimation(imageView, Duration.millis(400), COUNTRIGHTLEFT, COLUMNS, WIDTH, HEIGHT, FRAMESLEFTRIGHT, -1);
-//		this.up = new SpriteAnimation(imageView, Duration.millis(400), COUNTUPDOWN, COLUMNS, WIDTH, HEIGHT, FRAMESUPDOWN, 1);
-//		this.down = new SpriteAnimation(imageView, Duration.millis(400), COUNTUPDOWN, COLUMNS, WIDTH, HEIGHT, FRAMESUPDOWN, 1);
 		this.up = new SpriteAnimation(imageView, Duration.millis(400), COUNTRIGHTLEFT, COLUMNS, WIDTH, HEIGHT, FRAMESLEFTRIGHT, 1);
 		this.down = new SpriteAnimation(imageView, Duration.millis(400), COUNTRIGHTLEFT, COLUMNS, WIDTH, HEIGHT, FRAMESLEFTRIGHT, 1);
 	}
