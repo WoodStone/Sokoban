@@ -9,8 +9,8 @@ import javafx.event.EventHandler;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
 import javafx.util.Duration;
+import no.vestein.sokoban.SokobanScene;
 import no.vestein.sokoban.blocks.BlockBox;
-import no.vestein.sokoban.level.Level;
 
 public class AnimationBox {
 
@@ -86,7 +86,7 @@ public class AnimationBox {
 				box.setYPosition(box.getYPosition() - 1);
 				box.getObject().setTranslateX(0);
 				box.getObject().setTranslateY(0);
-				if (Level.getMap().getGoal(box.getXPosition(), box.getYPosition()) != null) {
+				if (SokobanScene.gameLevel.getMap().getGoal(box.getXPosition(), box.getYPosition()) != null) {
 					box.getObject().setFill(Color.GREEN);
 				}
 			}
@@ -102,7 +102,7 @@ public class AnimationBox {
 				box.setYPosition(box.getYPosition() + 1);
 				box.getObject().setTranslateX(0);
 				box.getObject().setTranslateY(0);
-				if (Level.getMap().getGoal(box.getXPosition(), box.getYPosition()) != null) {
+				if (SokobanScene.gameLevel.getMap().getGoal(box.getXPosition(), box.getYPosition()) != null) {
 					box.getObject().setFill(Color.GREEN);
 				}
 			}
@@ -118,7 +118,7 @@ public class AnimationBox {
 				box.setYPosition(box.getYPosition() + 0);
 				box.getObject().setTranslateX(0);
 				box.getObject().setTranslateY(0);
-				if (Level.getMap().getGoal(box.getXPosition(), box.getYPosition()) != null) {
+				if (SokobanScene.gameLevel.getMap().getGoal(box.getXPosition(), box.getYPosition()) != null) {
 					box.getObject().setFill(Color.GREEN);
 				}
 			}
@@ -134,7 +134,7 @@ public class AnimationBox {
 				box.setYPosition(box.getYPosition() + 0);
 				box.getObject().setTranslateX(0);
 				box.getObject().setTranslateY(0);
-				if (Level.getMap().getGoal(box.getXPosition(), box.getYPosition()) != null) {
+				if (SokobanScene.gameLevel.getMap().getGoal(box.getXPosition(), box.getYPosition()) != null) {
 					box.getObject().setFill(Color.GREEN);
 				}
 			}

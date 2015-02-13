@@ -11,6 +11,7 @@ import no.vestein.sokoban.blocks.BlockGoal;
 import no.vestein.sokoban.blocks.BlockPlayer;
 import no.vestein.sokoban.blocks.BlockBox;
 import no.vestein.sokoban.blocks.BlockWall;
+import no.vestein.sokoban.leveleditor.grid.BlockGrid;
 
 public class SokobanLevel {
 
@@ -26,7 +27,6 @@ public class SokobanLevel {
 		this.posY = posY;
 		this.level = level;
 		this.objectMap = generateObjectMap();
-		
 	}
 	
 	public int getPosY() {
@@ -70,8 +70,8 @@ public class SokobanLevel {
 	}
 	
 	public void loadLevel() {
+		makeGrid();
 		setupObjectGroup();
-		
 	}
 	
 	private void setupObjectGroup() {
@@ -120,5 +120,16 @@ public class SokobanLevel {
 		return map;
 	}
 	
+	private void makeGrid() {
+		Group gridGroup = new Group();
+		for (int i = 0; i < 20; i++) {
+			for (int j = 0; j < 20; j++) {
+				BlockGrid blockGrid = new BlockGrid(j * 20 + getPosX(), i * 20 + getPosY());
+				blockGrid.setStroke(Color.rgb(128, 128, 128, 0.50));
+				gridGroup.getChildren().add(blockGrid);
+			}
+		}
+		SokobanScene.gameView.getChildren().add(gridGroup);
+	}
 	
 }

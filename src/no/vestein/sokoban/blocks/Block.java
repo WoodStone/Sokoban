@@ -1,6 +1,6 @@
 package no.vestein.sokoban.blocks;
 
-import no.vestein.sokoban.level.Level;
+import no.vestein.sokoban.SokobanScene;
 import javafx.scene.Node;
 
 public class Block{
@@ -13,12 +13,11 @@ public class Block{
 	}
 	
 	public int getXPosition() {
-		return (x - Level.getMap().getPosX()) / 20;
-		
+		return (x - SokobanScene.gameLevel.getMap().getPosX()) / 20;
 	}
 	
 	public int getYPosition() {
-		return (y - Level.getMap().getPosY()) / 20;
+		return (y - SokobanScene.gameLevel.getMap().getPosY()) / 20;
 	}
 	
 	public Node getObject() {

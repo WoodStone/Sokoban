@@ -8,7 +8,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import no.vestein.sokoban.SokobanScene;
-import no.vestein.sokoban.level.Level;
 import no.vestein.sokoban.level.MoveController;
 
 public class GameViewController {
@@ -32,7 +31,7 @@ public class GameViewController {
 	
 	@FXML
 	public void restartButtonPressed() {
-		SokobanScene.startGame(Level.getSelectedLevel());
+		SokobanScene.startGame(SokobanScene.gameLevel.getSelectedLevel());
 	}
 
 	@FXML
