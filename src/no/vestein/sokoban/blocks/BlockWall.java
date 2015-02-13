@@ -1,25 +1,30 @@
 package no.vestein.sokoban.blocks;
 
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.StrokeType;
+import no.vestein.sokoban.Main;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class BlockWall extends Block{
 	
-	private Rectangle shape;
+	private ImageView imageView;
+	private final Image IMAGE = new Image(Main.class.getResourceAsStream("resources/wall.png"));
+	private final int WIDTH = 32;
+	private final int HEIGHT = 32;
 	
 	public BlockWall(int x, int y) {
 		super(x, y);
-		shape = new Rectangle(x, y, 20, 20);
-		shape.setFill(Color.BROWN);
-		shape.setStroke(Color.rgb(227, 227, 227, 0.5));
-		shape.setStrokeType(StrokeType.CENTERED);
-		shape.setStrokeWidth(0.5);
+		imageView = new ImageView(IMAGE);
+		imageView.setViewport(new Rectangle2D(0, 0, WIDTH, HEIGHT));
+		imageView.setFitHeight(20);
+		imageView.setFitWidth(20);
+		imageView.setX(x);
+		imageView.setY(y);
 	}
 	
 	@Override
-	public Rectangle getObject() {
-		return shape;
+	public ImageView getObject() {
+		return imageView;
 	}
 	
 }
