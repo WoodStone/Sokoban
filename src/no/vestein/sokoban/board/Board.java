@@ -105,7 +105,8 @@ public class Board {
 					map.put(j + "." + i, wall);
 				} else if (level[i][j] == '*') {
 					BlockBox box = new BlockBox(posX + (j * 20), posY + (i * 20));
-					box.getObject().setFill(Color.GREEN);
+//					box.getObject().setFill(Color.GREEN);
+					box.setGoal();
 					map.put(j + "." + i, box);
 					
 					BlockGoal goal = new BlockGoal(posX + (j * 20), posY + (i * 20));

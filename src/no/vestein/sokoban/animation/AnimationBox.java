@@ -6,8 +6,7 @@ import javafx.animation.Timeline;
 import javafx.animation.Animation.Status;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Ellipse;
+import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import no.vestein.sokoban.Sokoban;
 import no.vestein.sokoban.blocks.BlockBox;
@@ -36,7 +35,7 @@ public class AnimationBox {
 	}
 	
 	public void goDir(int dirX, int dirY) {
-		box.getObject().setFill(Color.RED);
+		box.setDefault();
 		if (dirX == 1) {
 			goRight();
 		} else if (dirX == -1) {
@@ -66,7 +65,7 @@ public class AnimationBox {
 	
 	private Timeline setAnimation(int dirX, int dirY) {
 		Timeline timeline = new Timeline();
-		Ellipse node = box.getObject();
+		ImageView node = box.getObject();
 		
 		timeline.getKeyFrames().clear();
 		timeline.getKeyFrames().add(
@@ -87,7 +86,7 @@ public class AnimationBox {
 				box.getObject().setTranslateX(0);
 				box.getObject().setTranslateY(0);
 				if (Sokoban.board.getGoal(box.getXPosition(), box.getYPosition()) != null) {
-					box.getObject().setFill(Color.GREEN);
+					box.setGoal();
 				}
 			}
 		});
@@ -103,7 +102,7 @@ public class AnimationBox {
 				box.getObject().setTranslateX(0);
 				box.getObject().setTranslateY(0);
 				if (Sokoban.board.getGoal(box.getXPosition(), box.getYPosition()) != null) {
-					box.getObject().setFill(Color.GREEN);
+					box.setGoal();
 				}
 			}
 		});
@@ -119,7 +118,7 @@ public class AnimationBox {
 				box.getObject().setTranslateX(0);
 				box.getObject().setTranslateY(0);
 				if (Sokoban.board.getGoal(box.getXPosition(), box.getYPosition()) != null) {
-					box.getObject().setFill(Color.GREEN);
+					box.setGoal();
 				}
 			}
 		});
@@ -135,7 +134,7 @@ public class AnimationBox {
 				box.getObject().setTranslateX(0);
 				box.getObject().setTranslateY(0);
 				if (Sokoban.board.getGoal(box.getXPosition(), box.getYPosition()) != null) {
-					box.getObject().setFill(Color.GREEN);
+					box.setGoal();
 				}
 			}
 		});

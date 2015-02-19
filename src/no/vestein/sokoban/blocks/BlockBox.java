@@ -1,17 +1,28 @@
 package no.vestein.sokoban.blocks;
 
+import no.vestein.sokoban.Main;
 import no.vestein.sokoban.animation.AnimationBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Ellipse;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class BlockBox extends BlockEllipse{
 	
+	private final Image IMAGE = new Image(Main.class.getResourceAsStream("resources/box.png"));
+	private final Image ONGOAL = new Image(Main.class.getResourceAsStream("resources/boxongoal.png"));
+	private final int WIDTH = 32;
+	private final int HEIGHT = 32;
 	private AnimationBox animationBox;
 	
 	public BlockBox(int x, int y) {
 		super(x, y);
-		super.shape = new Ellipse(x + 10, y + 10, 10, 10);
-		super.shape.setFill(Color.RED);
+		
+		imageView = new ImageView(IMAGE);
+		imageView.setViewport(new Rectangle2D(0, 0, WIDTH, HEIGHT));
+		imageView.setFitHeight(20);
+		imageView.setFitWidth(20);
+		imageView.setX(x);
+		imageView.setY(y);
 		
 		animationBox = new AnimationBox(this);
 	}
@@ -19,4 +30,13 @@ public class BlockBox extends BlockEllipse{
 	public void goDir(int dirX, int dirY) {
 		animationBox.goDir(dirX, dirY);
 	}
+	
+	public void setDefault() {
+		imageView.setImage(IMAGE);
+	}
+	
+	public void setGoal() {
+		imageView.setImage(ONGOAL);
+	}
+	
 }

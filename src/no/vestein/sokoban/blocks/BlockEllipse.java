@@ -1,29 +1,29 @@
 package no.vestein.sokoban.blocks;
 
 import no.vestein.sokoban.Sokoban;
-import javafx.scene.shape.Ellipse;
+import javafx.scene.image.ImageView;
 
 public class BlockEllipse extends Block {
 
-	protected Ellipse shape;
+	protected ImageView imageView;
 	
 	public BlockEllipse(int x, int y) {
 		super(x, y);
 	}
 	
 	public void setXPosition(int x) {
-		shape.setCenterX(x * 20 + Sokoban.board.getPosX() + 10);
+		imageView.setX(x * 20 + Sokoban.board.getPosX());
 		super.x = x * 20 + Sokoban.board.getPosX();
 	}
 	
 	public void setYPosition(int y) {
-		shape.setCenterY(y * 20 + Sokoban.board.getPosY() + 10);
+		imageView.setY(y * 20 + Sokoban.board.getPosY());
 		super.y = y * 20 + Sokoban.board.getPosY();
 	}
 	
 	@Override
-	public Ellipse getObject() {
-		return shape;
+	public ImageView getObject() {
+		return imageView;
 	}
 	
 }
