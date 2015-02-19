@@ -1,5 +1,6 @@
 package no.vestein.sokoban.leveleditor;
 
+import no.vestein.sokoban.Reference;
 import no.vestein.sokoban.Sokoban;
 import no.vestein.sokoban.leveleditor.blocks.BlockGrid;
 import no.vestein.sokoban.leveleditor.blocks.BlockTool;
@@ -26,7 +27,7 @@ public class LevelEditor {
 		
 		for (int i = 0; i < loadedLevel.length; i++) {
 			for (int j = 0; j < loadedLevel.length; j++) {
-				BlockGrid blockGrid = new BlockGrid(j * 20 + 50, i * 20 + 80);
+				BlockGrid blockGrid = new BlockGrid(j * Reference.blockWidth + 50, i * Reference.blockHeight + 80);
 				if (loadedLevel[i][j] == '#') {
 					blockGrid.setTag('#');
 					blockGrid.setFill(Color.BROWN);
@@ -52,9 +53,9 @@ public class LevelEditor {
 	
 	private static void setupGrid() {
 		gridGroup = new Group();
-		for (int i = 0; i < 20; i++) {
-			for (int j = 0; j < 20; j++) {
-				BlockGrid blockGrid = new BlockGrid(j * 20 + 50, i * 20 + 80);
+		for (int i = 0; i < Reference.gridHeight; i++) {
+			for (int j = 0; j < Reference.gridWidth; j++) {
+				BlockGrid blockGrid = new BlockGrid(j * Reference.blockWidth + 50, i * Reference.blockWidth + 80);
 				gridGroup.getChildren().add(blockGrid);
 				level[i][j] = '0';
 			}

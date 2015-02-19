@@ -2,6 +2,7 @@ package no.vestein.sokoban.animation;
 
 import java.util.Random;
 
+import no.vestein.sokoban.Reference;
 import no.vestein.sokoban.Sokoban;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -49,20 +50,20 @@ public class Background {
 		for (Node circle: rectangles.getChildren()) {
 		    timeline.getKeyFrames().addAll(
 		        new KeyFrame(Duration.ZERO,
-		            new KeyValue(circle.translateXProperty(), r.nextInt(500)),
-		            new KeyValue(circle.translateYProperty(), r.nextInt(500))
+		            new KeyValue(circle.translateXProperty(), r.nextInt(Reference.windowWidth)),
+		            new KeyValue(circle.translateYProperty(), r.nextInt(Reference.windowHeight))
 		        ),
 		        new KeyFrame(new Duration(r.nextInt(4) * 5000),
-		            new KeyValue(circle.translateXProperty(), r.nextInt(500)),
-		            new KeyValue(circle.translateYProperty(), r.nextInt(500))
+		            new KeyValue(circle.translateXProperty(), r.nextInt(Reference.windowWidth)),
+		            new KeyValue(circle.translateYProperty(), r.nextInt(Reference.windowHeight))
 		        ),
 		        new KeyFrame(new Duration(20000 + r.nextInt(4) * 5000 + 5000),
-		        	new KeyValue(circle.translateXProperty(), r.nextInt(500)),
-		        	new KeyValue(circle.translateYProperty(), r.nextInt(500))
+		        	new KeyValue(circle.translateXProperty(), r.nextInt(Reference.windowWidth)),
+		        	new KeyValue(circle.translateYProperty(), r.nextInt(Reference.windowHeight))
 		        ),
 		        new KeyFrame(new Duration(45000),
-		        	new KeyValue(circle.translateXProperty(), r.nextInt(500)),
-		        	new KeyValue(circle.translateYProperty(), r.nextInt(500))
+		        	new KeyValue(circle.translateXProperty(), r.nextInt(Reference.windowWidth)),
+		        	new KeyValue(circle.translateYProperty(), r.nextInt(Reference.windowHeight))
 		        )
 		    );
 		}
@@ -80,16 +81,16 @@ public class Background {
 				for (Node rect : rectangles.getChildren()) {
 					timeline.getKeyFrames().addAll(
 						new KeyFrame(new Duration(r.nextInt(4) * 5000),
-							new KeyValue(rect.translateXProperty(), r.nextInt(500)),
-							new KeyValue(rect.translateYProperty(), r.nextInt(500))
+							new KeyValue(rect.translateXProperty(), r.nextInt(Reference.windowWidth)),
+							new KeyValue(rect.translateYProperty(), r.nextInt(Reference.windowHeight))
 						),
 						new KeyFrame(new Duration(20000 + r.nextInt(4) * 5000 + 5000),
-							new KeyValue(rect.translateXProperty(), r.nextInt(500)),
-					        new KeyValue(rect.translateYProperty(), r.nextInt(500))
+							new KeyValue(rect.translateXProperty(), r.nextInt(Reference.windowWidth)),
+					        new KeyValue(rect.translateYProperty(), r.nextInt(Reference.windowHeight))
 						),
 						new KeyFrame(new Duration(45000),
-							new KeyValue(rect.translateXProperty(), r.nextInt(500)),
-							new KeyValue(rect.translateYProperty(), r.nextInt(500))
+							new KeyValue(rect.translateXProperty(), r.nextInt(Reference.windowWidth)),
+							new KeyValue(rect.translateYProperty(), r.nextInt(Reference.windowHeight))
 						)
 					);
 				}

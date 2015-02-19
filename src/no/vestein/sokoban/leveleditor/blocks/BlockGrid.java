@@ -4,6 +4,7 @@ import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import no.vestein.sokoban.Reference;
 import no.vestein.sokoban.leveleditor.LevelEditor;
 
 public class BlockGrid extends Rectangle{
@@ -11,7 +12,7 @@ public class BlockGrid extends Rectangle{
 	private char tag;
 	
 	public BlockGrid(int x, int y) {
-		super(x, y, 20, 20);
+		super(x, y, Reference.blockWidth, Reference.blockHeight);
 		this.setFill(Color.rgb(128, 128, 128, 0.15));
 		this.setStroke(Color.DARKGRAY);
 		this.tag = '0';
@@ -24,8 +25,8 @@ public class BlockGrid extends Rectangle{
 				block.setFill(LevelEditor.selectedBlockTool.getColor());
 				block.setTag(LevelEditor.selectedBlockTool.getTag());
 				
-				int xpos = (int) (block.getX() - 50) / 20;
-				int ypos = (int) (block.getY() - 80) / 20;
+				int xpos = (int) (block.getX() - 50) / Reference.blockWidth;
+				int ypos = (int) (block.getY() - 80) / Reference.blockHeight;
 				
 				LevelEditor.level[ypos][xpos] = block.getTag();
 			}

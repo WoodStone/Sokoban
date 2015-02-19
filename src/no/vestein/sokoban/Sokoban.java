@@ -19,14 +19,11 @@ public class Sokoban {
 	public static AnchorPane levelSelectView;
 	public static AnchorPane levelEditorView;
 	public static Scene scene;
-	
 	public static Board board;
-
 	
 	public static void initStage(Stage stage) {
 		primaryStage = stage;
 		primaryStage.setTitle("Sokoban");
-		
 	}
 	
 	public static void initRoot() {
@@ -96,8 +93,6 @@ public class Sokoban {
 		}
 		
 		GameViewController.init();
-//		gameLevel = new GameLevel(level);
-//		gameLevel.load();
 		board = new Board(gameView, 50, 60, level);
 	}
 	

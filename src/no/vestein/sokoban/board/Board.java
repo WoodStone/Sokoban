@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
+import no.vestein.sokoban.Reference;
 import no.vestein.sokoban.blocks.Block;
 import no.vestein.sokoban.blocks.BlockGoal;
 import no.vestein.sokoban.blocks.BlockPlayer;
@@ -19,6 +20,7 @@ public class Board {
 
 	private int posX;
 	private int posY;
+	
 	private Map<String, Block> objectMap;
 	private char[][] level;
 	private Group boxGroup;
@@ -101,24 +103,23 @@ public class Board {
 		for (int i = 0; i < level.length; i++) {
 			for (int j = 0; j < level[0].length; j++) {
 				if (level[i][j] == '#') {
-					BlockWall wall = new BlockWall(posX + (j * 20), posY + (i * 20));
+					BlockWall wall = new BlockWall(posX + (j * Reference.blockWidth), posY + (i * Reference.blockHeight));
 					map.put(j + "." + i, wall);
 				} else if (level[i][j] == '*') {
-					BlockBox box = new BlockBox(posX + (j * 20), posY + (i * 20));
-//					box.getObject().setFill(Color.GREEN);
+					BlockBox box = new BlockBox(posX + (j * Reference.blockWidth), posY + (i * Reference.blockHeight));
 					box.setGoal();
 					map.put(j + "." + i, box);
 					
-					BlockGoal goal = new BlockGoal(posX + (j * 20), posY + (i * 20));
+					BlockGoal goal = new BlockGoal(posX + (j * Reference.blockWidth), posY + (i * Reference.blockHeight));
 					map.put(j + "." + i + "goal", goal);
 				} else if (level[i][j] == '$') {
-					BlockBox box = new BlockBox(posX + (j * 20), posY + (i * 20));
+					BlockBox box = new BlockBox(posX + (j * Reference.blockWidth), posY + (i * Reference.blockHeight));
 					map.put(j + "." + i, box);
 				} else if (level[i][j] == '.') {
-					BlockGoal goal = new BlockGoal(posX + (j * 20), posY + (i * 20));
+					BlockGoal goal = new BlockGoal(posX + (j * Reference.blockWidth), posY + (i * Reference.blockHeight));
 					map.put(j + "." + i + "goal", goal);
 				} else if (level[i][j] == '@') {
-					BlockPlayer player = new BlockPlayer(posX + (j * 20), posY + (i * 20));
+					BlockPlayer player = new BlockPlayer(posX + (j * Reference.blockWidth), posY + (i * Reference.blockHeight));
 					map.put("player", player);
 				}
 			}
@@ -128,9 +129,9 @@ public class Board {
 	
 	private void makeGrid() {
 		Group gridGroup = new Group();
-		for (int i = 0; i < 20; i++) {
-			for (int j = 0; j < 20; j++) {
-				BlockGrid blockGrid = new BlockGrid(j * 20 + getPosX(), i * 20 + getPosY());
+		for (int i = 0; i < Reference.gridHeight; i++) {
+			for (int j = 0; j < Reference.gridWidth; j++) {
+				BlockGrid blockGrid = new BlockGrid(j * Reference.blockWidth + getPosX(), i * Reference.blockHeight + getPosY());
 				blockGrid.setStroke(Color.rgb(128, 128, 128, 0.50));
 				gridGroup.getChildren().add(blockGrid);
 			}

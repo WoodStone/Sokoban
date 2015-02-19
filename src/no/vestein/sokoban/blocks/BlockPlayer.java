@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import no.vestein.sokoban.Main;
+import no.vestein.sokoban.Reference;
 import no.vestein.sokoban.Sokoban;
 import no.vestein.sokoban.animation.AnimationPlayer;
 import no.vestein.sokoban.animation.SpriteAnimation;
@@ -34,10 +35,10 @@ public class BlockPlayer extends Block {
 		
 		imageView = new ImageView(IMAGE);
 		imageView.setViewport(new Rectangle2D(0, 0, WIDTH, HEIGHT));
-		imageView.setScaleX(0.50);
-		imageView.setScaleY(0.50);
-		imageView.setX(x - 22);
-		imageView.setY(y - 27);
+		imageView.setScaleX(0.75);
+		imageView.setScaleY(0.75);
+		imageView.setX(x - 17);
+		imageView.setY(y - 22);
 
 		animationPlayer = new AnimationPlayer(this);
 		
@@ -51,30 +52,30 @@ public class BlockPlayer extends Block {
 	private ImageView makeImageView() {
 		ImageView imageView = new ImageView(IMAGE);
 		imageView.setViewport(new Rectangle2D(0, 0, WIDTH, HEIGHT));
-		imageView.setScaleX(0.50);
-		imageView.setScaleY(0.50);
+		imageView.setScaleX(0.75);
+		imageView.setScaleY(0.75);
 		return imageView;
 	}
 	
 	public void setXPosition(int x) {
-		imageView.setX(x * 20 + Sokoban.board.getPosX() - 22);
-		super.x = x * 20 + Sokoban.board.getPosX();
+		imageView.setX(x * Reference.blockWidth + Sokoban.board.getPosX() - 17);
+		super.x = x * Reference.blockWidth + Sokoban.board.getPosX();
 	}
 	
 	public void setYPosition(int y) {
-		imageView.setY(y * 20 + Sokoban.board.getPosY() - 27);
-		super.y = y * 20 + Sokoban.board.getPosY();
+		imageView.setY(y * Reference.blockHeight + Sokoban.board.getPosY() - 22);
+		super.y = y * Reference.blockHeight + Sokoban.board.getPosY();
 	}
 	
 	@Override
 	public int getXPosition() {
-		return (x - Sokoban.board.getPosX()) / 20;
+		return (x - Sokoban.board.getPosX()) / Reference.blockWidth;
 		
 	}
 	
 	@Override
 	public int getYPosition() {
-		return (y - Sokoban.board.getPosY()) / 20;
+		return (y - Sokoban.board.getPosY()) / Reference.blockHeight;
 	}
 	
 	public void goDir(int dirX, int dirY) {

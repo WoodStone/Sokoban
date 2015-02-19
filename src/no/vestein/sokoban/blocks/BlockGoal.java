@@ -1,6 +1,7 @@
 package no.vestein.sokoban.blocks;
 
 import no.vestein.sokoban.Main;
+import no.vestein.sokoban.Reference;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -16,8 +17,8 @@ public class BlockGoal extends BlockEllipse{
 		
 		imageView = new ImageView(IMAGE);
 		imageView.setViewport(new Rectangle2D(0, 0, WIDTH, HEIGHT));
-		imageView.setFitHeight(20);
-		imageView.setFitWidth(20);
+		imageView.setFitHeight(Reference.blockHeight);
+		imageView.setFitWidth(Reference.blockWidth);
 		imageView.setX(x);
 		imageView.setY(y);
 		

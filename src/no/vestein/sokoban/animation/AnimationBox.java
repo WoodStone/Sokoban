@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
+import no.vestein.sokoban.Reference;
 import no.vestein.sokoban.Sokoban;
 import no.vestein.sokoban.blocks.BlockBox;
 
@@ -70,8 +71,8 @@ public class AnimationBox {
 		timeline.getKeyFrames().clear();
 		timeline.getKeyFrames().add(
 			        new KeyFrame(new Duration(400),
-			        	new KeyValue(node.translateXProperty(), 20 * dirX),
-			            new KeyValue(node.translateYProperty(), 20 * dirY)
+			        	new KeyValue(node.translateXProperty(), Reference.blockWidth * dirX),
+			            new KeyValue(node.translateYProperty(), Reference.blockHeight * dirY)
 			        ));
 		return timeline;
 	}

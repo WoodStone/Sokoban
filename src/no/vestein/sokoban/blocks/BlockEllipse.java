@@ -1,5 +1,6 @@
 package no.vestein.sokoban.blocks;
 
+import no.vestein.sokoban.Reference;
 import no.vestein.sokoban.Sokoban;
 import javafx.scene.image.ImageView;
 
@@ -12,13 +13,13 @@ public class BlockEllipse extends Block {
 	}
 	
 	public void setXPosition(int x) {
-		imageView.setX(x * 20 + Sokoban.board.getPosX());
-		super.x = x * 20 + Sokoban.board.getPosX();
+		imageView.setX(x * Reference.blockWidth + Sokoban.board.getPosX());
+		super.x = x * Reference.blockWidth + Sokoban.board.getPosX();
 	}
 	
 	public void setYPosition(int y) {
-		imageView.setY(y * 20 + Sokoban.board.getPosY());
-		super.y = y * 20 + Sokoban.board.getPosY();
+		imageView.setY(y * Reference.blockHeight + Sokoban.board.getPosY());
+		super.y = y * Reference.blockHeight + Sokoban.board.getPosY();
 	}
 	
 	@Override
