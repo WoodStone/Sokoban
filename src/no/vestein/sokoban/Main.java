@@ -7,10 +7,10 @@ public class Main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) {
-		SokobanScene.initStage(primaryStage);
+		Sokoban.initStage(primaryStage);
 		
-		SokobanScene.initRoot();
-		SokobanScene.initStart();
+		Sokoban.initRoot();
+		Sokoban.initStart();
 		
 	}
 	

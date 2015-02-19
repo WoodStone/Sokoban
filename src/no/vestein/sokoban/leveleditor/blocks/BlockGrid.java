@@ -1,4 +1,4 @@
-package no.vestein.sokoban.leveleditor.grid;
+package no.vestein.sokoban.leveleditor.blocks;
 
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;

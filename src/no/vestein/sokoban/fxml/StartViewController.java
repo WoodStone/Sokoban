@@ -1,6 +1,6 @@
 package no.vestein.sokoban.fxml;
 
-import no.vestein.sokoban.SokobanScene;
+import no.vestein.sokoban.Sokoban;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -10,12 +10,12 @@ public class StartViewController {
 	
 	@FXML
 	private void startButtonPressed() {
-		SokobanScene.levelSelect();
+		Sokoban.levelSelect();
 	}
 	
 	@FXML
 	private void levelEditorButtonPressed() {
-		SokobanScene.levelEditor();
+		Sokoban.levelEditor();
 	}
 	
 	@FXML

@@ -1,4 +1,4 @@
-package no.vestein.sokoban.leveleditor.grid;
+package no.vestein.sokoban.leveleditor.blocks;
 
 import no.vestein.sokoban.leveleditor.LevelEditor;
 import javafx.event.EventHandler;

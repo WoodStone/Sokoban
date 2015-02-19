@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import no.vestein.sokoban.Main;
-import no.vestein.sokoban.SokobanScene;
+import no.vestein.sokoban.Sokoban;
 import no.vestein.sokoban.animation.AnimationPlayer;
 import no.vestein.sokoban.animation.SpriteAnimation;
 import javafx.geometry.Rectangle2D;
@@ -57,24 +57,24 @@ public class BlockPlayer extends Block {
 	}
 	
 	public void setXPosition(int x) {
-		imageView.setX(x * 20 + SokobanScene.gameLevel.getMap().getPosX() - 22);
-		super.x = x * 20 + SokobanScene.gameLevel.getMap().getPosX();
+		imageView.setX(x * 20 + Sokoban.board.getPosX() - 22);
+		super.x = x * 20 + Sokoban.board.getPosX();
 	}
 	
 	public void setYPosition(int y) {
-		imageView.setY(y * 20 + SokobanScene.gameLevel.getMap().getPosY() - 27);
-		super.y = y * 20 + SokobanScene.gameLevel.getMap().getPosY();
+		imageView.setY(y * 20 + Sokoban.board.getPosY() - 27);
+		super.y = y * 20 + Sokoban.board.getPosY();
 	}
 	
 	@Override
 	public int getXPosition() {
-		return (x - SokobanScene.gameLevel.getMap().getPosX()) / 20;
+		return (x - Sokoban.board.getPosX()) / 20;
 		
 	}
 	
 	@Override
 	public int getYPosition() {
-		return (y - SokobanScene.gameLevel.getMap().getPosY()) / 20;
+		return (y - Sokoban.board.getPosY()) / 20;
 	}
 	
 	public void goDir(int dirX, int dirY) {

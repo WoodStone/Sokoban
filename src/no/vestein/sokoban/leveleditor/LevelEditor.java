@@ -1,8 +1,8 @@
 package no.vestein.sokoban.leveleditor;
 
-import no.vestein.sokoban.SokobanScene;
-import no.vestein.sokoban.leveleditor.grid.BlockGrid;
-import no.vestein.sokoban.leveleditor.grid.BlockTool;
+import no.vestein.sokoban.Sokoban;
+import no.vestein.sokoban.leveleditor.blocks.BlockGrid;
+import no.vestein.sokoban.leveleditor.blocks.BlockTool;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -59,7 +59,7 @@ public class LevelEditor {
 				level[i][j] = '0';
 			}
 		}
-		SokobanScene.levelEditorView.getChildren().add(gridGroup);
+		Sokoban.levelEditorView.getChildren().add(gridGroup);
 	}
 	
 	private static void setupBlocks() {
@@ -78,7 +78,7 @@ public class LevelEditor {
 		toolTooltip.setFill(Color.PURPLE);
 		toolTooltip.setFont(Font.font(20));
 		
-		SokobanScene.levelEditorView.getChildren().addAll(toolsGroup, toolTooltip);
+		Sokoban.levelEditorView.getChildren().addAll(toolsGroup, toolTooltip);
 	}
 	
 }

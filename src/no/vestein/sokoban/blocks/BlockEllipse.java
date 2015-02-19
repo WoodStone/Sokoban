@@ -1,6 +1,6 @@
 package no.vestein.sokoban.blocks;
 
-import no.vestein.sokoban.SokobanScene;
+import no.vestein.sokoban.Sokoban;
 import javafx.scene.shape.Ellipse;
 
 public class BlockEllipse extends Block {
@@ -12,13 +12,13 @@ public class BlockEllipse extends Block {
 	}
 	
 	public void setXPosition(int x) {
-		shape.setCenterX(x * 20 + SokobanScene.gameLevel.getMap().getPosX() + 10);
-		super.x = x * 20 + SokobanScene.gameLevel.getMap().getPosX();
+		shape.setCenterX(x * 20 + Sokoban.board.getPosX() + 10);
+		super.x = x * 20 + Sokoban.board.getPosX();
 	}
 	
 	public void setYPosition(int y) {
-		shape.setCenterY(y * 20 + SokobanScene.gameLevel.getMap().getPosY() + 10);
-		super.y = y * 20 + SokobanScene.gameLevel.getMap().getPosY();
+		shape.setCenterY(y * 20 + Sokoban.board.getPosY() + 10);
+		super.y = y * 20 + Sokoban.board.getPosY();
 	}
 	
 	@Override

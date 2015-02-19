@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 import no.vestein.sokoban.Main;
-import no.vestein.sokoban.SokobanScene;
+import no.vestein.sokoban.Sokoban;
 import javafx.stage.FileChooser;
 
 public class FileHandler {
@@ -20,7 +20,7 @@ public class FileHandler {
 		fileChooser.setTitle("Save Level File");
 		fileChooser.setInitialDirectory(new File(filepath));
 
-		File file = fileChooser.showSaveDialog(SokobanScene.primaryStage);
+		File file = fileChooser.showSaveDialog(Sokoban.primaryStage);
 		
 		PrintWriter output = new PrintWriter(new FileOutputStream(file));
 		for (char[] ylevel : level) {
@@ -39,7 +39,7 @@ public class FileHandler {
 		fileChooser.setTitle("Open Level File");
 		fileChooser.setInitialDirectory(new File(filepath));
 		
-		File file = fileChooser.showOpenDialog(SokobanScene.primaryStage);
+		File file = fileChooser.showOpenDialog(Sokoban.primaryStage);
 
 		return readLevelFile(file);
 	}

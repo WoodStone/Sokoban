@@ -6,23 +6,23 @@ import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import no.vestein.sokoban.SokobanScene;
+import no.vestein.sokoban.Sokoban;
 import no.vestein.sokoban.leveleditor.FileHandler;
 
 public class LevelSelectViewController {
 	
 	@FXML void backButtonPressed() {
-		SokobanScene.initStart();
+		Sokoban.initStart();
 	}
 	
 	@FXML void customLevelButtonPressed() throws FileNotFoundException {
 		char[][] level = FileHandler.loadDialog();
-		SokobanScene.startGame(level);
+		Sokoban.startGame(level);
 	}
 	
 	@FXML void levelButtonPressed(MouseEvent mouseEvent) throws FileNotFoundException {
 		String filename = ((Text) mouseEvent.getSource()).getText().toLowerCase().replaceAll("\\s", "");
-		SokobanScene.startGame(FileHandler.loadLevel(filename));
+		Sokoban.startGame(FileHandler.loadLevel(filename));
 	}
 	
 	@FXML

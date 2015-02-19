@@ -7,13 +7,13 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import no.vestein.sokoban.SokobanScene;
-import no.vestein.sokoban.level.MoveController;
+import no.vestein.sokoban.Sokoban;
+import no.vestein.sokoban.board.MoveController;
 
 public class GameViewController {
 	
 	public static void init() {
-		SokobanScene.gameView.setOnKeyPressed(new EventHandler<KeyEvent>() {
+		Sokoban.gameView.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent keyevent) {
 				if (keyevent.getCode() == KeyCode.A) {
@@ -26,12 +26,12 @@ public class GameViewController {
 	
 	@FXML
 	public void menuButtonPressed() {
-		SokobanScene.initStart();
+		Sokoban.initStart();
 	}
 	
 	@FXML
 	public void restartButtonPressed() {
-		SokobanScene.startGame(SokobanScene.gameLevel.getSelectedLevel());
+		Sokoban.startGame(Sokoban.board.getSelectedLevel());
 	}
 
 	@FXML

@@ -2,7 +2,7 @@ package no.vestein.sokoban.animation;
 
 import java.util.Random;
 
-import no.vestein.sokoban.SokobanScene;
+import no.vestein.sokoban.Sokoban;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -43,7 +43,7 @@ public class Background {
 		}
 		rectangles.setEffect(new BoxBlur(10, 10, 3));	
 		
-		root.getChildren().addAll(new Rectangle(SokobanScene.scene.getWidth(), SokobanScene.scene.getHeight(), Color.WHITESMOKE), rectangles);
+		root.getChildren().addAll(new Rectangle(Sokoban.scene.getWidth(), Sokoban.scene.getHeight(), Color.WHITESMOKE), rectangles);
 		
 		timeline = new Timeline();
 		for (Node circle: rectangles.getChildren()) {
@@ -68,7 +68,7 @@ public class Background {
 		}
 		timeline.setOnFinished(event());
 		timeline.play();
-		SokobanScene.root.getChildren().add(root);
+		Sokoban.root.getChildren().add(root);
 	}
 	
 	public static EventHandler<ActionEvent> event() {

@@ -1,8 +1,8 @@
 package no.vestein.sokoban;
 
 import no.vestein.sokoban.animation.Background;
+import no.vestein.sokoban.board.Board;
 import no.vestein.sokoban.fxml.GameViewController;
-import no.vestein.sokoban.level.GameLevel;
 import no.vestein.sokoban.leveleditor.LevelEditor;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,7 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class SokobanScene {
+public class Sokoban {
 
 	public static Stage primaryStage;
 	public static BorderPane root;
@@ -20,7 +20,7 @@ public class SokobanScene {
 	public static AnchorPane levelEditorView;
 	public static Scene scene;
 	
-	public static GameLevel gameLevel;
+	public static Board board;
 
 	
 	public static void initStage(Stage stage) {
@@ -96,8 +96,9 @@ public class SokobanScene {
 		}
 		
 		GameViewController.init();
-		gameLevel = new GameLevel(level);
-		gameLevel.load();
+//		gameLevel = new GameLevel(level);
+//		gameLevel.load();
+		board = new Board(gameView, 50, 60, level);
 	}
 	
 }

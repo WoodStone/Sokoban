@@ -1,19 +1,21 @@
-package no.vestein.sokoban.level;
+package no.vestein.sokoban.board;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import javafx.scene.Group;
+import javafx.scene.Node;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
-import no.vestein.sokoban.SokobanScene;
+import javafx.scene.shape.Ellipse;
 import no.vestein.sokoban.blocks.Block;
 import no.vestein.sokoban.blocks.BlockGoal;
 import no.vestein.sokoban.blocks.BlockPlayer;
 import no.vestein.sokoban.blocks.BlockBox;
 import no.vestein.sokoban.blocks.BlockWall;
-import no.vestein.sokoban.leveleditor.grid.BlockGrid;
+import no.vestein.sokoban.leveleditor.blocks.BlockGrid;
 
-public class SokobanLevel {
+public class Board {
 
 	private int posX;
 	private int posY;
@@ -21,12 +23,15 @@ public class SokobanLevel {
 	private char[][] level;
 	private Group boxGroup;
 	private Group goalGroup;
+	private AnchorPane gameView;
 	
-	public SokobanLevel(int posX, int posY, char[][] level) {
+	public Board(AnchorPane gameView, int posX, int posY, char[][] level) {
+		this.gameView = gameView;
 		this.posX = posX;
 		this.posY = posY;
 		this.level = level;
 		this.objectMap = generateObjectMap();
+		loadLevel();
 	}
 	
 	public int getPosY() {
@@ -61,7 +66,7 @@ public class SokobanLevel {
 		return goalGroup;
 	}
 	
-	public char[][] getLevel() {
+	public char[][] getSelectedLevel() {
 		return level;
 	}
 	
@@ -69,7 +74,7 @@ public class SokobanLevel {
 		objectMap.put("player", player);
 	}
 	
-	public void loadLevel() {
+	private void loadLevel() {
 		makeGrid();
 		setupObjectGroup();
 	}
@@ -86,9 +91,9 @@ public class SokobanLevel {
 				}
 			}
 		}
-		SokobanScene.gameView.getChildren().add(goalGroup);
-		SokobanScene.gameView.getChildren().add(boxGroup);
-		SokobanScene.gameView.getChildren().add(getPlayer().getObject());
+		gameView.getChildren().add(goalGroup);
+		gameView.getChildren().add(boxGroup);
+		gameView.getChildren().add(getPlayer().getObject());
 	}
 	
 	private Map<String, Block> generateObjectMap() {
@@ -129,7 +134,25 @@ public class SokobanLevel {
 				gridGroup.getChildren().add(blockGrid);
 			}
 		}
-		SokobanScene.gameView.getChildren().add(gridGroup);
+		gameView.getChildren().add(gridGroup);
+	}
+	
+	private int numberOfGoals() {
+		return getGoalGroup().getChildren().size();
+	}
+	
+	private int numberOfGreenBoxes () {
+		int n = 0;
+		for (Node box : getBoxGroup().getChildren()) {
+			if (((Ellipse)box).getFill() == Color.GREEN) {
+				n++;
+			}
+		}
+		return n;
+	}
+	
+	public boolean checkIfGameIsDone() {
+		return numberOfGoals() == numberOfGreenBoxes();
 	}
 	
 }
