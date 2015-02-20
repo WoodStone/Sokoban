@@ -8,13 +8,13 @@ import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
+import javafx.scene.shape.Rectangle;
 import no.vestein.sokoban.Reference;
 import no.vestein.sokoban.blocks.Block;
 import no.vestein.sokoban.blocks.BlockGoal;
 import no.vestein.sokoban.blocks.BlockPlayer;
 import no.vestein.sokoban.blocks.BlockBox;
 import no.vestein.sokoban.blocks.BlockWall;
-import no.vestein.sokoban.leveleditor.blocks.BlockGrid;
 
 public class Board {
 
@@ -131,9 +131,11 @@ public class Board {
 		Group gridGroup = new Group();
 		for (int i = 0; i < Reference.gridHeight; i++) {
 			for (int j = 0; j < Reference.gridWidth; j++) {
-				BlockGrid blockGrid = new BlockGrid(j * Reference.blockWidth + getPosX(), i * Reference.blockHeight + getPosY());
-				blockGrid.setStroke(Color.rgb(128, 128, 128, 0.50));
-				gridGroup.getChildren().add(blockGrid);
+				Rectangle rectGrid = new Rectangle(j * Reference.blockWidth + getPosX(), i * Reference.blockHeight + getPosY(), Reference.blockWidth, Reference.blockHeight);
+				rectGrid.setFill(Color.rgb(128, 128, 128, 0.15));
+				rectGrid.setStroke(Color.DARKGRAY);
+				
+				gridGroup.getChildren().add(rectGrid);
 			}
 		}
 		gameView.getChildren().add(gridGroup);

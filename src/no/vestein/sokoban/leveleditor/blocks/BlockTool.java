@@ -4,23 +4,25 @@ import no.vestein.sokoban.leveleditor.LevelEditor;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Tooltip;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 
-public class BlockTool extends Rectangle{
+public class BlockTool extends ImageView {
 	
 	private char tag;
 	private String tooltip;
-	private Color color;
 	
 	@SuppressWarnings("static-access")
-	public BlockTool(int x, int y, Color color, char tag, String tooltip) {
-		super(x, y, 30, 30);
-		this.setFill(color);
-		this.setStroke(Color.DARKGRAY);
+	public BlockTool(int x, int y, Image image, char tag, String tooltip) {
+		super(image);
+		this.setX(x);
+		this.setY(y);
+		this.setFitHeight(32);
+		this.setFitWidth(32);
+		this.setPickOnBounds(true);
 		this.tag = tag;
-		this.color = color;
 		this.tooltip = tooltip;
 		
 		Tooltip t = new Tooltip(tooltip);
@@ -32,28 +34,17 @@ public class BlockTool extends Rectangle{
 				LevelEditor.selectedBlockTool = (BlockTool) mouseEvent.getSource();
 				
 				for (Node block : LevelEditor.toolsGroup.getChildren()) {
-					((BlockTool) block).setStroke(Color.DARKGRAY);
-					((BlockTool) block).setStrokeWidth(1);
+					((BlockTool) block).setEffect(null);
 				}
-				((BlockTool) mouseEvent.getSource()).setStroke(Color.AQUA);;
-				((BlockTool) mouseEvent.getSource()).setStrokeWidth(2);
+				((BlockTool) mouseEvent.getSource()).setEffect(new DropShadow());
 				
 				LevelEditor.toolTooltip.setText(((BlockTool) mouseEvent.getSource()).getTooltip());
 			}
 		});
 	}
 	
-	public BlockTool(int x, int y, Color color, Color color2, char tag, String tooltip) {
-		this(x, y, color, tag, tooltip);
-		this.color = color2;
-	}
-	
 	public char getTag() {
 		return tag;
-	}
-	
-	public Color getColor() {
-		return color;
 	}
 	
 	public String getTooltip() {

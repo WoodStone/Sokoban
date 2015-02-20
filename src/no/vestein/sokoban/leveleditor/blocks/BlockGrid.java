@@ -1,28 +1,33 @@
 package no.vestein.sokoban.leveleditor.blocks;
 
 import javafx.event.EventHandler;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import no.vestein.sokoban.Reference;
 import no.vestein.sokoban.leveleditor.LevelEditor;
 
-public class BlockGrid extends Rectangle{
+public class BlockGrid extends ImageView{
 
 	private char tag;
 	
-	public BlockGrid(int x, int y) {
-		super(x, y, Reference.blockWidth, Reference.blockHeight);
-		this.setFill(Color.rgb(128, 128, 128, 0.15));
-		this.setStroke(Color.DARKGRAY);
+	public BlockGrid(int x, int y, Image image) {
+		super(image);
+		this.setX(x);
+		this.setY(y);
+		this.setFitHeight(32);
+		this.setFitWidth(32);
+		this.setPickOnBounds(true);
 		this.tag = '0';
 		
 		this.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent mouseEvent) throws NullPointerException {
 				BlockGrid block = (BlockGrid) mouseEvent.getSource();
-				
-				block.setFill(LevelEditor.selectedBlockTool.getColor());
+				block.setImage(LevelEditor.selectedBlockTool.getImage());
+				if (LevelEditor.selectedBlockTool.getTag() == '0') {
+					block.setImage(LevelEditor.air);
+				}
 				block.setTag(LevelEditor.selectedBlockTool.getTag());
 				
 				int xpos = (int) (block.getX() - 50) / Reference.blockWidth;
