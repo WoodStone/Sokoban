@@ -30,7 +30,7 @@ public class Background {
 		rectangles = new Group();
 		Random r = new Random();
 		for (int i = 0; i < 30; i++) {
-			Rectangle rect = new Rectangle(100, 100, Color.web("white", 0.05));
+			Rectangle rect = new Rectangle(150, 150, Color.web("white", 0.05));
 			rect.setStrokeType(StrokeType.OUTSIDE);
 			rect.setStroke(Color.web("white", 0.16));
 			rect.setStrokeWidth(4);
@@ -53,11 +53,11 @@ public class Background {
 		            new KeyValue(circle.translateXProperty(), r.nextInt(Reference.windowWidth)),
 		            new KeyValue(circle.translateYProperty(), r.nextInt(Reference.windowHeight))
 		        ),
-		        new KeyFrame(new Duration(r.nextInt(4) * 5000),
+		        new KeyFrame(new Duration(5000 + (r.nextInt(3) * 5000)),
 		            new KeyValue(circle.translateXProperty(), r.nextInt(Reference.windowWidth)),
 		            new KeyValue(circle.translateYProperty(), r.nextInt(Reference.windowHeight))
 		        ),
-		        new KeyFrame(new Duration(20000 + r.nextInt(4) * 5000 + 5000),
+		        new KeyFrame(new Duration(25000 + (r.nextInt(4) * 5000)),
 		        	new KeyValue(circle.translateXProperty(), r.nextInt(Reference.windowWidth)),
 		        	new KeyValue(circle.translateYProperty(), r.nextInt(Reference.windowHeight))
 		        ),
@@ -80,11 +80,11 @@ public class Background {
 				Random r = new Random();
 				for (Node rect : rectangles.getChildren()) {
 					timeline.getKeyFrames().addAll(
-						new KeyFrame(new Duration(r.nextInt(4) * 5000),
+						new KeyFrame(new Duration(5000 + (r.nextInt(3) * 5000)),
 							new KeyValue(rect.translateXProperty(), r.nextInt(Reference.windowWidth)),
 							new KeyValue(rect.translateYProperty(), r.nextInt(Reference.windowHeight))
 						),
-						new KeyFrame(new Duration(20000 + r.nextInt(4) * 5000 + 5000),
+						new KeyFrame(new Duration(25000 + (r.nextInt(4) * 5000)),
 							new KeyValue(rect.translateXProperty(), r.nextInt(Reference.windowWidth)),
 					        new KeyValue(rect.translateYProperty(), r.nextInt(Reference.windowHeight))
 						),
