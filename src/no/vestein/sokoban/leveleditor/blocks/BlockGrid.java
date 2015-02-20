@@ -5,7 +5,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import no.vestein.sokoban.Reference;
-import no.vestein.sokoban.leveleditor.LevelEditor;
+import no.vestein.sokoban.Sokoban;
 
 public class BlockGrid extends ImageView{
 
@@ -24,16 +24,16 @@ public class BlockGrid extends ImageView{
 			@Override
 			public void handle(MouseEvent mouseEvent) throws NullPointerException {
 				BlockGrid block = (BlockGrid) mouseEvent.getSource();
-				block.setImage(LevelEditor.selectedBlockTool.getImage());
-				if (LevelEditor.selectedBlockTool.getTag() == '0') {
+				block.setImage(Sokoban.levelEditor.getSelectedBlockTool().getImage());
+				if (Sokoban.levelEditor.getSelectedBlockTool().getTag() == '0') {
 					block.setImage(Reference.IMAGE_NOTHING);
 				}
-				block.setTag(LevelEditor.selectedBlockTool.getTag());
+				block.setTag(Sokoban.levelEditor.getSelectedBlockTool().getTag());
 				
 				int xpos = (int) (block.getX() - 50) / Reference.blockWidth;
 				int ypos = (int) (block.getY() - 80) / Reference.blockHeight;
 				
-				LevelEditor.level[ypos][xpos] = block.getTag();
+				Sokoban.levelEditor.setTag(xpos, ypos, block.getTag());
 			}
 		});
 	}

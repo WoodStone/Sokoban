@@ -1,8 +1,7 @@
 package no.vestein.sokoban.leveleditor.blocks;
 
-import no.vestein.sokoban.leveleditor.LevelEditor;
+import no.vestein.sokoban.Sokoban;
 import javafx.event.EventHandler;
-import javafx.scene.Node;
 import javafx.scene.control.Tooltip;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
@@ -31,14 +30,15 @@ public class BlockTool extends ImageView {
 		this.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent mouseEvent) {
-				LevelEditor.selectedBlockTool = (BlockTool) mouseEvent.getSource();
-				
-				for (Node block : LevelEditor.toolsGroup.getChildren()) {
-					((BlockTool) block).setEffect(null);
+				Sokoban.levelEditor.setPreviousBlockTool(Sokoban.levelEditor.getSelectedBlockTool());
+				Sokoban.levelEditor.setSelectedBlockTool((BlockTool) mouseEvent.getSource()); 
+
+				if (Sokoban.levelEditor.getPreviousBlockTool() != null) {
+					Sokoban.levelEditor.getPreviousBlockTool().setEffect(null);
 				}
 				((BlockTool) mouseEvent.getSource()).setEffect(new DropShadow());
 				
-				LevelEditor.toolTooltip.setText(((BlockTool) mouseEvent.getSource()).getTooltip());
+				Sokoban.levelEditor.getToolTooltip().setText(((BlockTool) mouseEvent.getSource()).getTooltip());
 			}
 		});
 	}

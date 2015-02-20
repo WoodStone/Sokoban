@@ -7,7 +7,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import no.vestein.sokoban.Sokoban;
-import no.vestein.sokoban.leveleditor.LevelEditor;
 import no.vestein.sokoban.utility.FileHandler;
 
 public class LevelEditorViewController {
@@ -29,12 +28,12 @@ public class LevelEditorViewController {
 	
 	@FXML
 	public void savePressed() throws FileNotFoundException {
-		FileHandler.saveDialog(LevelEditor.level);
+		FileHandler.saveDialog(Sokoban.levelEditor.getLoadedLevel());
 	}
 	
 	@FXML
 	public void loadPressed() throws FileNotFoundException {
 		char[][] level = FileHandler.loadDialog();
-		LevelEditor.load(level);
+		Sokoban.levelEditor.load(level);
 	}
 }

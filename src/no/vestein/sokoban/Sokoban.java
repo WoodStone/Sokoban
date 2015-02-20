@@ -20,6 +20,7 @@ public class Sokoban {
 	public static AnchorPane levelEditorView;
 	public static Scene scene;
 	public static Board board;
+	public static LevelEditor levelEditor;
 	
 	public static void initStage(Stage stage) {
 		primaryStage = stage;
@@ -75,7 +76,7 @@ public class Sokoban {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		LevelEditor.init();
+		levelEditor = new LevelEditor(levelEditorView);
 	}
 	
 	public static void startGame(char[][] level) {
