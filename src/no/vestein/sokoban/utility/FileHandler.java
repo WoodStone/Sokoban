@@ -1,4 +1,4 @@
-package no.vestein.sokoban.leveleditor;
+package no.vestein.sokoban.utility;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -45,7 +45,7 @@ public class FileHandler {
 	}
 	
 	public static char[][] loadLevel(String filename) throws FileNotFoundException {
-		InputStream io = Main.class.getResourceAsStream("/no/vestein/sokoban/resources/levels/" + filename);
+		InputStream io = Main.class.getResourceAsStream("resources/levels/" + filename);
 		return readLevelFile(io);
 	}
 	

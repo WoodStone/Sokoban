@@ -26,7 +26,7 @@ public class BlockGrid extends ImageView{
 				BlockGrid block = (BlockGrid) mouseEvent.getSource();
 				block.setImage(LevelEditor.selectedBlockTool.getImage());
 				if (LevelEditor.selectedBlockTool.getTag() == '0') {
-					block.setImage(LevelEditor.air);
+					block.setImage(Reference.IMAGE_NOTHING);
 				}
 				block.setTag(LevelEditor.selectedBlockTool.getTag());
 				

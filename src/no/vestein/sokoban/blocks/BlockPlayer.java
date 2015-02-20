@@ -3,19 +3,16 @@ package no.vestein.sokoban.blocks;
 import java.util.Arrays;
 import java.util.List;
 
-import no.vestein.sokoban.Main;
 import no.vestein.sokoban.Reference;
 import no.vestein.sokoban.Sokoban;
 import no.vestein.sokoban.animation.AnimationPlayer;
 import no.vestein.sokoban.animation.SpriteAnimation;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 public class BlockPlayer extends Block {
 	
-	private final Image IMAGE = new Image(Main.class.getResourceAsStream("resources/player.png"));
 	private final int WIDTH = 64;
 	private final int HEIGHT = 64;
 	private final int COLUMNS = 4;
@@ -33,7 +30,7 @@ public class BlockPlayer extends Block {
 	public BlockPlayer(int x, int y) {
 		super(x, y);
 		
-		imageView = new ImageView(IMAGE);
+		imageView = new ImageView(Reference.IMAGE_PLAYER);
 		imageView.setViewport(new Rectangle2D(0, 0, WIDTH, HEIGHT));
 		imageView.setScaleX(0.75);
 		imageView.setScaleY(0.75);
@@ -50,7 +47,7 @@ public class BlockPlayer extends Block {
 	
 	@SuppressWarnings("unused")
 	private ImageView makeImageView() {
-		ImageView imageView = new ImageView(IMAGE);
+		ImageView imageView = new ImageView(Reference.IMAGE_PLAYER);
 		imageView.setViewport(new Rectangle2D(0, 0, WIDTH, HEIGHT));
 		imageView.setScaleX(0.75);
 		imageView.setScaleY(0.75);
