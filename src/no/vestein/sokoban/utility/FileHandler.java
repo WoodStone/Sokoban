@@ -45,7 +45,7 @@ public class FileHandler {
 	}
 	
 	public static char[][] loadLevel(String filename) throws FileNotFoundException {
-		InputStream io = Main.class.getResourceAsStream("/assets/levels/" + filename);
+		InputStream io = Main.class.getResourceAsStream("resources/levels/" + filename);
 		return readLevelFile(io);
 	}
 	
