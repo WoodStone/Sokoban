@@ -61,7 +61,7 @@ public class LevelEditor {
 		
 		for (int i = 0; i < loadedLevel.length; i++) {
 			for (int j = 0; j < loadedLevel.length; j++) {
-				BlockGrid blockGrid = new BlockGrid(j * Reference.blockWidth + 50, i * Reference.blockHeight + 80, Reference.IMAGE_NOTHING);
+				BlockGrid blockGrid = new BlockGrid(j * Reference.blockWidth + 50, i * Reference.blockHeight + 80, null);
 				if (loadedLevel[i][j] == '#') {
 					blockGrid.setTag('#');
 					blockGrid.setImage(Reference.IMAGE_WALL);
@@ -89,7 +89,7 @@ public class LevelEditor {
 		gridGroup = new Group();
 		for (int i = 0; i < Reference.gridHeight; i++) {
 			for (int j = 0; j < Reference.gridWidth; j++) {
-				BlockGrid blockGrid = new BlockGrid(j * Reference.blockWidth + 50, i * Reference.blockWidth + 80, Reference.IMAGE_NOTHING);
+				BlockGrid blockGrid = new BlockGrid(j * Reference.blockWidth + 50, i * Reference.blockWidth + 80, null);
 				gridGroup.getChildren().add(blockGrid);
 				level[i][j] = '0';
 			}
