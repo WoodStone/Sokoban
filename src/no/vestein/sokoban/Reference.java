@@ -19,4 +19,6 @@ public class Reference {
 	public static final Image IMAGE_TOOLPLAYER = new Image(Main.class.getResourceAsStream("resources/toolplayer.png"));
 	public static final Image IMAGE_DELETE = new Image(Main.class.getResourceAsStream("resources/delete.png"));
 	
+	public static final String STRING_VICTORY = "VICTORY!";
+	
 }

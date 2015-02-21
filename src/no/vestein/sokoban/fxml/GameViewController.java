@@ -8,7 +8,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import no.vestein.sokoban.Sokoban;
-import no.vestein.sokoban.board.MoveController;
 
 public class GameViewController {
 	
@@ -19,7 +18,7 @@ public class GameViewController {
 				if (keyevent.getCode() == KeyCode.A) {
 					System.out.println("test");
 				}
-				MoveController.checkKeyPressed(keyevent);
+				Sokoban.board.getMoveController().checkKeyPressed(keyevent);
 			}
 		});
 	}

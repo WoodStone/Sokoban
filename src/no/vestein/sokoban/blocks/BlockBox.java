@@ -1,6 +1,7 @@
 package no.vestein.sokoban.blocks;
 
 import no.vestein.sokoban.Reference;
+import no.vestein.sokoban.Sokoban;
 import no.vestein.sokoban.animation.AnimationBox;
 import javafx.scene.image.ImageView;
 
@@ -30,6 +31,7 @@ public class BlockBox extends BlockEllipse{
 	
 	public void setGoal() {
 		imageView.setImage(Reference.IMAGE_BOXONGOAL);
+		Sokoban.board.finishGame();
 	}
 	
 }

@@ -25,7 +25,7 @@ public class LevelEditor {
 		this.levelEditorView = levelEditorView;
 		makeGrid();
 		setupGridBlocks();
-		setupBlocks();
+		setupTools();
 	}
 	
 	public char[][] getLoadedLevel() {
@@ -112,7 +112,7 @@ public class LevelEditor {
 	}
 	
 	
-	private void setupBlocks() {
+	private void setupTools() {
 		Group toolGroup = new Group();
 		
 		BlockTool wall = new BlockTool(50, 40, Reference.IMAGE_WALL, '#', "Wall");

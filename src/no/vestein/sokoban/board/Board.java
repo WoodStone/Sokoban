@@ -3,12 +3,17 @@ package no.vestein.sokoban.board;
 import java.util.HashMap;
 import java.util.Map;
 
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import no.vestein.sokoban.Reference;
 import no.vestein.sokoban.blocks.Block;
 import no.vestein.sokoban.blocks.BlockGoal;
@@ -26,6 +31,7 @@ public class Board {
 	private Group boxGroup;
 	private Group goalGroup;
 	private AnchorPane gameView;
+	private MoveController moveController;
 	
 	public Board(AnchorPane gameView, int posX, int posY, char[][] level) {
 		this.gameView = gameView;
@@ -33,6 +39,7 @@ public class Board {
 		this.posY = posY;
 		this.level = level;
 		this.objectMap = generateObjectMap();
+		this.moveController = new MoveController(this);
 		loadLevel();
 	}
 	
@@ -72,8 +79,39 @@ public class Board {
 		return level;
 	}
 	
+	public MoveController getMoveController() {
+		return moveController;
+	}
+	
 	public void setPlayer(BlockPlayer player) {
 		objectMap.put("player", player);
+	}
+	
+	public void finishGame() {
+		if (checkIfGameIsDone()) {
+			StackPane pane = new StackPane();
+			pane.setLayoutX(50);
+			pane.setLayoutY(60);
+			pane.setPrefHeight(600);
+			pane.setPrefWidth(600);
+			
+			Rectangle rect = new Rectangle(660, 660);
+			rect.setTranslateX(-10);
+			rect.setTranslateY(-10);
+			rect.setFill(Color.rgb(128, 128, 128, 0.50));
+			Text victory = new Text(Reference.STRING_VICTORY);
+			victory.setFill(Color.AQUA);
+			victory.setFont(Font.font(70));
+			victory.setEffect(new DropShadow());
+			victory.setTranslateY(-30);
+			
+			
+			pane.getChildren().addAll(rect, victory);
+			pane.setAlignment(Pos.CENTER);
+			
+			gameView.getChildren().add(pane);
+			pane.requestFocus();
+		}
 	}
 	
 	private void loadLevel() {
@@ -148,7 +186,7 @@ public class Board {
 	private int numberOfGreenBoxes () {
 		int n = 0;
 		for (Node box : getBoxGroup().getChildren()) {
-			if (((Ellipse)box).getFill() == Color.GREEN) {
+			if (((ImageView)box).getImage() == Reference.IMAGE_BOXONGOAL) {
 				n++;
 			}
 		}
