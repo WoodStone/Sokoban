@@ -92,8 +92,6 @@ public class Board {
 			StackPane pane = new StackPane();
 			pane.setLayoutX(50);
 			pane.setLayoutY(60);
-			pane.setPrefHeight(600);
-			pane.setPrefWidth(600);
 			
 			Rectangle rect = new Rectangle(660, 660);
 			rect.setTranslateX(-10);

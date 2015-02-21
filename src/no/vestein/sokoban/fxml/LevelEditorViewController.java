@@ -7,7 +7,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import no.vestein.sokoban.Sokoban;
-import no.vestein.sokoban.utility.FileHandler;
+import no.vestein.sokoban.util.FileHandler;
 
 public class LevelEditorViewController {
 	
