@@ -48,9 +48,9 @@ public class AnimationPlayer {
 		
 		timeline.getKeyFrames().clear();
 		timeline.getKeyFrames().add(
-			        new KeyFrame(new Duration(400),
-			        	new KeyValue(node.translateXProperty(), Reference.blockWidth * dirX),
-			            new KeyValue(node.translateYProperty(), Reference.blockHeight * dirY)
+			        new KeyFrame(new Duration(Reference.ANIMATION_TIME),
+			        	new KeyValue(node.translateXProperty(), Reference.BLOCK_WIDTH * dirX),
+			            new KeyValue(node.translateYProperty(), Reference.BLOCK_HEIGHT * dirY)
 			        ));
 		return timeline;
 	}

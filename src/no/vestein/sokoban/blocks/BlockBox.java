@@ -13,8 +13,8 @@ public class BlockBox extends BlockEllipse{
 		super(x, y);
 		
 		imageView = new ImageView(Reference.IMAGE_BOX);
-		imageView.setFitHeight(Reference.blockHeight);
-		imageView.setFitWidth(Reference.blockWidth);
+		imageView.setFitHeight(Reference.BLOCK_HEIGHT);
+		imageView.setFitWidth(Reference.BLOCK_WIDTH);
 		imageView.setX(x);
 		imageView.setY(y);
 		

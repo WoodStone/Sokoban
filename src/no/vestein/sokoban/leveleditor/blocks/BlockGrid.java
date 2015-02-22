@@ -31,8 +31,8 @@ public class BlockGrid extends ImageView{
 					}
 					block.setTag(Sokoban.levelEditor.getSelectedBlockTool().getTag());
 					
-					int xpos = (int) (block.getX() - 50) / Reference.blockWidth;
-					int ypos = (int) (block.getY() - 80) / Reference.blockHeight;
+					int xpos = (int) (block.getX() - 50) / Reference.BLOCK_WIDTH;
+					int ypos = (int) (block.getY() - 80) / Reference.BLOCK_HEIGHT;
 					
 					Sokoban.levelEditor.setTag(xpos, ypos, block.getTag());
 				} catch (NullPointerException e) {

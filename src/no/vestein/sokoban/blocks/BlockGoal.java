@@ -9,8 +9,8 @@ public class BlockGoal extends BlockEllipse{
 		super(x, y);
 		
 		imageView = new ImageView(Reference.IMAGE_GOAL);
-		imageView.setFitHeight(Reference.blockHeight);
-		imageView.setFitWidth(Reference.blockWidth);
+		imageView.setFitHeight(Reference.BLOCK_HEIGHT);
+		imageView.setFitWidth(Reference.BLOCK_WIDTH);
 		imageView.setX(x);
 		imageView.setY(y);
 		

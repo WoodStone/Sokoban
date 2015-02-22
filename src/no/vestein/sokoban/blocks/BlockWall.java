@@ -10,8 +10,8 @@ public class BlockWall extends Block{
 	public BlockWall(int x, int y) {
 		super(x, y);
 		imageView = new ImageView(Reference.IMAGE_WALL);
-		imageView.setFitHeight(Reference.blockHeight);
-		imageView.setFitWidth(Reference.blockWidth);
+		imageView.setFitHeight(Reference.BLOCK_HEIGHT);
+		imageView.setFitWidth(Reference.BLOCK_WIDTH);
 		imageView.setX(x);
 		imageView.setY(y);
 	}

@@ -13,13 +13,13 @@ public class BlockEllipse extends Block {
 	}
 	
 	public void setXPosition(int x) {
-		imageView.setX(x * Reference.blockWidth + Sokoban.board.getPosX());
-		super.x = x * Reference.blockWidth + Sokoban.board.getPosX();
+		imageView.setX(x * Reference.BLOCK_WIDTH + Sokoban.board.getPosX());
+		super.x = x * Reference.BLOCK_WIDTH + Sokoban.board.getPosX();
 	}
 	
 	public void setYPosition(int y) {
-		imageView.setY(y * Reference.blockHeight + Sokoban.board.getPosY());
-		super.y = y * Reference.blockHeight + Sokoban.board.getPosY();
+		imageView.setY(y * Reference.BLOCK_HEIGHT + Sokoban.board.getPosY());
+		super.y = y * Reference.BLOCK_HEIGHT + Sokoban.board.getPosY();
 	}
 	
 	@Override

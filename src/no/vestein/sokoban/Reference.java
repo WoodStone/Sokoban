@@ -4,12 +4,13 @@ import javafx.scene.image.Image;
 
 public class Reference {
 	
-	public static final int blockWidth = 32;
-	public static final int blockHeight = 32;
-	public static final int windowWidth = 700;
-	public static final int windowHeight = 700;
-	public static final int gridWidth = 20;
-	public static final int gridHeight = 20;
+	public static final int BLOCK_WIDTH = 32;
+	public static final int BLOCK_HEIGHT = 32;
+	public static final int WINDOW_WIDTH = 700;
+	public static final int WINDOW_HEIGHT = 700;
+	public static final int GRID_WIDTH = 20;
+	public static final int GRID_HEIGHT = 20;
+	public static final int ANIMATION_TIME = 400;
 	
 	public static final Image IMAGE_BOX = new Image(Main.class.getResourceAsStream("/assets/box.png"));
 	public static final Image IMAGE_BOXONGOAL = new Image(Main.class.getResourceAsStream("/assets/boxongoal.png"));

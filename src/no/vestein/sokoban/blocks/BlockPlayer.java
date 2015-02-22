@@ -39,10 +39,10 @@ public class BlockPlayer extends Block {
 
 		animationPlayer = new AnimationPlayer(this);
 		
-		this.right = new SpriteAnimation(imageView, Duration.millis(400), COUNTRIGHTLEFT, COLUMNS, WIDTH, HEIGHT, FRAMESLEFTRIGHT, 1);
-		this.left = new SpriteAnimation(imageView, Duration.millis(400), COUNTRIGHTLEFT, COLUMNS, WIDTH, HEIGHT, FRAMESLEFTRIGHT, -1);
-		this.up = new SpriteAnimation(imageView, Duration.millis(400), COUNTRIGHTLEFT, COLUMNS, WIDTH, HEIGHT, FRAMESLEFTRIGHT, 1);
-		this.down = new SpriteAnimation(imageView, Duration.millis(400), COUNTRIGHTLEFT, COLUMNS, WIDTH, HEIGHT, FRAMESLEFTRIGHT, 1);
+		this.right = new SpriteAnimation(imageView, Duration.millis(Reference.ANIMATION_TIME), COUNTRIGHTLEFT, COLUMNS, WIDTH, HEIGHT, FRAMESLEFTRIGHT, 1);
+		this.left = new SpriteAnimation(imageView, Duration.millis(Reference.ANIMATION_TIME), COUNTRIGHTLEFT, COLUMNS, WIDTH, HEIGHT, FRAMESLEFTRIGHT, -1);
+		this.up = new SpriteAnimation(imageView, Duration.millis(Reference.ANIMATION_TIME), COUNTRIGHTLEFT, COLUMNS, WIDTH, HEIGHT, FRAMESLEFTRIGHT, 1);
+		this.down = new SpriteAnimation(imageView, Duration.millis(Reference.ANIMATION_TIME), COUNTRIGHTLEFT, COLUMNS, WIDTH, HEIGHT, FRAMESLEFTRIGHT, 1);
 	}
 	
 	@SuppressWarnings("unused")
@@ -55,24 +55,24 @@ public class BlockPlayer extends Block {
 	}
 	
 	public void setXPosition(int x) {
-		imageView.setX(x * Reference.blockWidth + Sokoban.board.getPosX() - 17);
-		super.x = x * Reference.blockWidth + Sokoban.board.getPosX();
+		imageView.setX(x * Reference.BLOCK_WIDTH + Sokoban.board.getPosX() - 17);
+		super.x = x * Reference.BLOCK_WIDTH + Sokoban.board.getPosX();
 	}
 	
 	public void setYPosition(int y) {
-		imageView.setY(y * Reference.blockHeight + Sokoban.board.getPosY() - 22);
-		super.y = y * Reference.blockHeight + Sokoban.board.getPosY();
+		imageView.setY(y * Reference.BLOCK_HEIGHT + Sokoban.board.getPosY() - 22);
+		super.y = y * Reference.BLOCK_HEIGHT + Sokoban.board.getPosY();
 	}
 	
 	@Override
 	public int getXPosition() {
-		return (x - Sokoban.board.getPosX()) / Reference.blockWidth;
+		return (x - Sokoban.board.getPosX()) / Reference.BLOCK_WIDTH;
 		
 	}
 	
 	@Override
 	public int getYPosition() {
-		return (y - Sokoban.board.getPosY()) / Reference.blockHeight;
+		return (y - Sokoban.board.getPosY()) / Reference.BLOCK_HEIGHT;
 	}
 	
 	public void goDir(int dirX, int dirY) {

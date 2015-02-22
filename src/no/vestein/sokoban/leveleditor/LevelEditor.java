@@ -61,7 +61,7 @@ public class LevelEditor {
 		
 		for (int i = 0; i < loadedLevel.length; i++) {
 			for (int j = 0; j < loadedLevel.length; j++) {
-				BlockGrid blockGrid = new BlockGrid(j * Reference.blockWidth + 50, i * Reference.blockHeight + 80, null);
+				BlockGrid blockGrid = new BlockGrid(j * Reference.BLOCK_WIDTH + 50, i * Reference.BLOCK_HEIGHT + 80, null);
 				if (loadedLevel[i][j] == '#') {
 					blockGrid.setTag('#');
 					blockGrid.setImage(Reference.IMAGE_WALL);
@@ -87,9 +87,9 @@ public class LevelEditor {
 	
 	private void setupGridBlocks() {
 		gridGroup = new Group();
-		for (int i = 0; i < Reference.gridHeight; i++) {
-			for (int j = 0; j < Reference.gridWidth; j++) {
-				BlockGrid blockGrid = new BlockGrid(j * Reference.blockWidth + 50, i * Reference.blockWidth + 80, null);
+		for (int i = 0; i < Reference.GRID_HEIGHT; i++) {
+			for (int j = 0; j < Reference.GRID_WIDTH; j++) {
+				BlockGrid blockGrid = new BlockGrid(j * Reference.BLOCK_WIDTH + 50, i * Reference.BLOCK_WIDTH + 80, null);
 				gridGroup.getChildren().add(blockGrid);
 				level[i][j] = '0';
 			}
@@ -99,9 +99,9 @@ public class LevelEditor {
 	
 	private void makeGrid() {
 		Group gridGroup = new Group();
-		for (int i = 0; i < Reference.gridHeight; i++) {
-			for (int j = 0; j < Reference.gridWidth; j++) {
-				Rectangle rectGrid = new Rectangle(j * Reference.blockWidth + 50, i * Reference.blockHeight + 80, Reference.blockWidth, Reference.blockHeight);
+		for (int i = 0; i < Reference.GRID_HEIGHT; i++) {
+			for (int j = 0; j < Reference.GRID_WIDTH; j++) {
+				Rectangle rectGrid = new Rectangle(j * Reference.BLOCK_WIDTH + 50, i * Reference.BLOCK_HEIGHT + 80, Reference.BLOCK_WIDTH, Reference.BLOCK_HEIGHT);
 				rectGrid.setFill(Color.rgb(128, 128, 128, 0.15));
 				rectGrid.setStroke(Color.DARKGRAY);
 				

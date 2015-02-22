@@ -50,20 +50,20 @@ public class Background {
 		for (Node circle: rectangles.getChildren()) {
 		    timeline.getKeyFrames().addAll(
 		        new KeyFrame(Duration.ZERO,
-		            new KeyValue(circle.translateXProperty(), r.nextInt(Reference.windowWidth)),
-		            new KeyValue(circle.translateYProperty(), r.nextInt(Reference.windowHeight))
+		            new KeyValue(circle.translateXProperty(), r.nextInt(Reference.WINDOW_WIDTH)),
+		            new KeyValue(circle.translateYProperty(), r.nextInt(Reference.WINDOW_HEIGHT))
 		        ),
 		        new KeyFrame(new Duration(5000 + (r.nextInt(3) * 5000)),
-		            new KeyValue(circle.translateXProperty(), r.nextInt(Reference.windowWidth)),
-		            new KeyValue(circle.translateYProperty(), r.nextInt(Reference.windowHeight))
+		            new KeyValue(circle.translateXProperty(), r.nextInt(Reference.WINDOW_WIDTH)),
+		            new KeyValue(circle.translateYProperty(), r.nextInt(Reference.WINDOW_HEIGHT))
 		        ),
 		        new KeyFrame(new Duration(25000 + (r.nextInt(4) * 5000)),
-		        	new KeyValue(circle.translateXProperty(), r.nextInt(Reference.windowWidth)),
-		        	new KeyValue(circle.translateYProperty(), r.nextInt(Reference.windowHeight))
+		        	new KeyValue(circle.translateXProperty(), r.nextInt(Reference.WINDOW_WIDTH)),
+		        	new KeyValue(circle.translateYProperty(), r.nextInt(Reference.WINDOW_HEIGHT))
 		        ),
 		        new KeyFrame(new Duration(50000),
-		        	new KeyValue(circle.translateXProperty(), r.nextInt(Reference.windowWidth)),
-		        	new KeyValue(circle.translateYProperty(), r.nextInt(Reference.windowHeight))
+		        	new KeyValue(circle.translateXProperty(), r.nextInt(Reference.WINDOW_WIDTH)),
+		        	new KeyValue(circle.translateYProperty(), r.nextInt(Reference.WINDOW_HEIGHT))
 		        )
 		    );
 		}
@@ -81,16 +81,16 @@ public class Background {
 				for (Node rect : rectangles.getChildren()) {
 					timeline.getKeyFrames().addAll(
 						new KeyFrame(new Duration(5000 + (r.nextInt(3) * 5000)),
-							new KeyValue(rect.translateXProperty(), r.nextInt(Reference.windowWidth)),
-							new KeyValue(rect.translateYProperty(), r.nextInt(Reference.windowHeight))
+							new KeyValue(rect.translateXProperty(), r.nextInt(Reference.WINDOW_WIDTH)),
+							new KeyValue(rect.translateYProperty(), r.nextInt(Reference.WINDOW_HEIGHT))
 						),
 						new KeyFrame(new Duration(25000 + (r.nextInt(4) * 5000)),
-							new KeyValue(rect.translateXProperty(), r.nextInt(Reference.windowWidth)),
-					        new KeyValue(rect.translateYProperty(), r.nextInt(Reference.windowHeight))
+							new KeyValue(rect.translateXProperty(), r.nextInt(Reference.WINDOW_WIDTH)),
+					        new KeyValue(rect.translateYProperty(), r.nextInt(Reference.WINDOW_HEIGHT))
 						),
 						new KeyFrame(new Duration(50000),
-							new KeyValue(rect.translateXProperty(), r.nextInt(Reference.windowWidth)),
-							new KeyValue(rect.translateYProperty(), r.nextInt(Reference.windowHeight))
+							new KeyValue(rect.translateXProperty(), r.nextInt(Reference.WINDOW_WIDTH)),
+							new KeyValue(rect.translateYProperty(), r.nextInt(Reference.WINDOW_HEIGHT))
 						)
 					);
 				}

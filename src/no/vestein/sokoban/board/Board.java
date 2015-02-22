@@ -139,23 +139,23 @@ public class Board {
 		for (int i = 0; i < level.length; i++) {
 			for (int j = 0; j < level[0].length; j++) {
 				if (level[i][j] == '#') {
-					BlockWall wall = new BlockWall(posX + (j * Reference.blockWidth), posY + (i * Reference.blockHeight));
+					BlockWall wall = new BlockWall(posX + (j * Reference.BLOCK_WIDTH), posY + (i * Reference.BLOCK_HEIGHT));
 					map.put(j + "." + i, wall);
 				} else if (level[i][j] == '*') {
-					BlockBox box = new BlockBox(posX + (j * Reference.blockWidth), posY + (i * Reference.blockHeight));
+					BlockBox box = new BlockBox(posX + (j * Reference.BLOCK_WIDTH), posY + (i * Reference.BLOCK_HEIGHT));
 					box.setGoal();
 					map.put(j + "." + i, box);
 					
-					BlockGoal goal = new BlockGoal(posX + (j * Reference.blockWidth), posY + (i * Reference.blockHeight));
+					BlockGoal goal = new BlockGoal(posX + (j * Reference.BLOCK_WIDTH), posY + (i * Reference.BLOCK_HEIGHT));
 					map.put(j + "." + i + "goal", goal);
 				} else if (level[i][j] == '$') {
-					BlockBox box = new BlockBox(posX + (j * Reference.blockWidth), posY + (i * Reference.blockHeight));
+					BlockBox box = new BlockBox(posX + (j * Reference.BLOCK_WIDTH), posY + (i * Reference.BLOCK_HEIGHT));
 					map.put(j + "." + i, box);
 				} else if (level[i][j] == '.') {
-					BlockGoal goal = new BlockGoal(posX + (j * Reference.blockWidth), posY + (i * Reference.blockHeight));
+					BlockGoal goal = new BlockGoal(posX + (j * Reference.BLOCK_WIDTH), posY + (i * Reference.BLOCK_HEIGHT));
 					map.put(j + "." + i + "goal", goal);
 				} else if (level[i][j] == '@') {
-					BlockPlayer player = new BlockPlayer(posX + (j * Reference.blockWidth), posY + (i * Reference.blockHeight));
+					BlockPlayer player = new BlockPlayer(posX + (j * Reference.BLOCK_WIDTH), posY + (i * Reference.BLOCK_HEIGHT));
 					map.put("player", player);
 				}
 			}
@@ -165,9 +165,9 @@ public class Board {
 	
 	private void makeGrid() {
 		Group gridGroup = new Group();
-		for (int i = 0; i < Reference.gridHeight; i++) {
-			for (int j = 0; j < Reference.gridWidth; j++) {
-				Rectangle rectGrid = new Rectangle(j * Reference.blockWidth + getPosX(), i * Reference.blockHeight + getPosY(), Reference.blockWidth, Reference.blockHeight);
+		for (int i = 0; i < Reference.GRID_HEIGHT; i++) {
+			for (int j = 0; j < Reference.GRID_WIDTH; j++) {
+				Rectangle rectGrid = new Rectangle(j * Reference.BLOCK_WIDTH + getPosX(), i * Reference.BLOCK_HEIGHT + getPosY(), Reference.BLOCK_WIDTH, Reference.BLOCK_HEIGHT);
 				rectGrid.setFill(Color.rgb(128, 128, 128, 0.15));
 				rectGrid.setStroke(Color.DARKGRAY);
 				

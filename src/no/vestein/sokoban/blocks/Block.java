@@ -14,11 +14,11 @@ public class Block{
 	}
 	
 	public int getXPosition() {
-		return (x - Sokoban.board.getPosX()) / Reference.blockWidth;
+		return (x - Sokoban.board.getPosX()) / Reference.BLOCK_WIDTH;
 	}
 	
 	public int getYPosition() {
-		return (y - Sokoban.board.getPosY()) / Reference.blockHeight;
+		return (y - Sokoban.board.getPosY()) / Reference.BLOCK_HEIGHT;
 	}
 	
 	public Node getObject() {
