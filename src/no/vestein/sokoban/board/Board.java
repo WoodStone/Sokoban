@@ -63,6 +63,10 @@ public class Board {
 		return (BlockGoal) objectMap.get(x + "." + y + "goal");
 	}
 	
+	public boolean isGoal(int x, int y) {
+		return getGoal(x, y) != null;
+	}
+	
 	public BlockPlayer getPlayer() {
 		return (BlockPlayer) objectMap.get("player");
 	}
@@ -88,7 +92,7 @@ public class Board {
 	}
 	
 	public void finishGame() {
-		if (checkIfGameIsDone()) {
+		if (isGameIsDone()) {
 			StackPane pane = new StackPane();
 			pane.setLayoutX(50);
 			pane.setLayoutY(60);
@@ -103,8 +107,20 @@ public class Board {
 			victory.setEffect(new DropShadow());
 			victory.setTranslateY(-30);
 			
+			Text nMoves = new Text("Moves: " + moveController.nMoves());
+			nMoves.setFill(Color.AQUAMARINE);
+			nMoves.setFont(Font.font(50));
+			nMoves.setEffect(new DropShadow());
+			nMoves.setTranslateY(40);
 			
-			pane.getChildren().addAll(rect, victory);
+			Text nPushes = new Text("Pushes: " + moveController.nBlockPushes());
+			nPushes.setFill(Color.AQUAMARINE);
+			nPushes.setFont(Font.font(50));
+			nPushes.setEffect(new DropShadow());
+			nPushes.setTranslateY(100);
+			
+			
+			pane.getChildren().addAll(rect, victory, nMoves, nPushes);
 			pane.setAlignment(Pos.CENTER);
 			
 			gameView.getChildren().add(pane);
@@ -191,7 +207,7 @@ public class Board {
 		return n;
 	}
 	
-	public boolean checkIfGameIsDone() {
+	public boolean isGameIsDone() {
 		return numberOfGoals() == numberOfGreenBoxes();
 	}
 	

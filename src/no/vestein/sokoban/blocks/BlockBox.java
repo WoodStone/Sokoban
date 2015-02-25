@@ -3,6 +3,7 @@ package no.vestein.sokoban.blocks;
 import no.vestein.sokoban.Reference;
 import no.vestein.sokoban.Sokoban;
 import no.vestein.sokoban.animation.AnimationBox;
+import no.vestein.sokoban.board.Board;
 import javafx.scene.image.ImageView;
 
 public class BlockBox extends BlockEllipse{
@@ -25,13 +26,21 @@ public class BlockBox extends BlockEllipse{
 		animationBox.goDir(dirX, dirY);
 	}
 	
+	public void updateState(Board board) {
+		if (board.isGoal(getXPosition(), getYPosition())) {
+			setGoal();
+		} else {
+			setDefault();
+		}
+	}
+	
 	public void setDefault() {
 		imageView.setImage(Reference.IMAGE_BOX);
 	}
 	
 	public void setGoal() {
 		imageView.setImage(Reference.IMAGE_BOXONGOAL);
-		Sokoban.board.finishGame();
+		if (Sokoban.board != null) Sokoban.board.finishGame();
 	}
 	
 }

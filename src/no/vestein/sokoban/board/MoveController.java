@@ -1,5 +1,8 @@
 package no.vestein.sokoban.board;
 
+import java.util.EmptyStackException;
+import java.util.List;
+
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import no.vestein.sokoban.blocks.Block;
@@ -11,13 +14,84 @@ import no.vestein.sokoban.blocks.BlockWall;
 public class MoveController {
 	
 	private Board board;
+	private History history = new History();
 	
 	public MoveController(Board board) {
 		this.board = board;
 	}
 
+	public int nMoves() {
+		return history.size();
+	}
+	
+	public int nBlockPushes() {
+		return history.nPushes();
+	}
+	
+	public boolean backward() {
+		if (! board.isGameIsDone()) {
+			try {
+				
+				List<Object> lastPositions = history.pop(board);
+				BlockPlayer player = board.getPlayer();
+				
+				int pPosX = (int) lastPositions.get(0);
+				int pPosY = (int) lastPositions.get(1);
+				
+				player.setXPosition(pPosX);
+				player.setYPosition(pPosY);
+				
+				try {
+					BlockBox box = (BlockBox) lastPositions.get(2);
+					int bPosX = (int) lastPositions.get(3);
+					int bPosY = (int) lastPositions.get(4);
+					
+					box.setXPosition(bPosX);
+					box.setYPosition(bPosY);
+					box.updateState(board);
+				} catch (IndexOutOfBoundsException e) {
+					// TODO: handle exception
+				}
+			} catch (EmptyStackException e) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public boolean forward() {
+		if (! board.isGameIsDone()) {
+			try {
+				
+				List<Object> futurePositions = history.popFuture(board);
+				BlockPlayer player = board.getPlayer();
+				
+				int pPosX = (int) futurePositions.get(0);
+				int pPosY = (int) futurePositions.get(1);
+				
+				player.setXPosition(pPosX);
+				player.setYPosition(pPosY);
+				
+				try {
+					BlockBox box = (BlockBox) futurePositions.get(2);
+					int bPosX = (int) futurePositions.get(3);
+					int bPosY = (int) futurePositions.get(4);
+					
+					box.setXPosition(bPosX);
+					box.setYPosition(bPosY);
+					box.updateState(board);
+				} catch (IndexOutOfBoundsException e) {
+					// TODO: handle exception
+				}
+			} catch (EmptyStackException e) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
 	public void checkKeyPressed(KeyEvent keyevent) {
-		if (! board.checkIfGameIsDone()) {
+		if (! board.isGameIsDone()) {
 			KeyCode key = keyevent.getCode();
 			BlockPlayer player = board.getPlayer();
 			if (!player.getMoving()) {
@@ -67,12 +141,17 @@ public class MoveController {
 			player.goDir(dirX, dirY);
 			player.setMoving(true);
 			board.getObjectMap().put("player", board.getPlayer());
+			
+			history.push(playerX, playerY);
+			
 		} else if (! (block instanceof BlockWall)) {
 			if (canBlockBeMoved(playerX, playerY, dirX, dirY)) {
 				player.goDir(dirX, dirY);
 				player.setMoving(true);
 				moveBlock(playerX, playerY, dirX, dirY);
 				board.getObjectMap().put("player", board.getPlayer());
+				
+				history.push(playerX, playerY, (BlockBox) block, block.getXPosition(), block.getYPosition());
 			}
 		}
 	}

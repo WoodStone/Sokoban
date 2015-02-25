@@ -89,11 +89,13 @@ public class Sokoban {
 			
 			gameView.requestFocus();
 			
+			GameViewController controller = loader.getController();
+			controller.postInit();
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
-		GameViewController.init();
+	
 		board = new Board(gameView, 50, 60, level);
 	}
 	
