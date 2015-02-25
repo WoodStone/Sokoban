@@ -46,6 +46,9 @@ public class MoveController {
 					int bPosX = (int) lastPositions.get(3);
 					int bPosY = (int) lastPositions.get(4);
 					
+					board.getObjectMap().remove(box.getXPosition() + "." + box.getYPosition());
+					board.getObjectMap().put(bPosX + "." + bPosY, box);
+					
 					box.setXPosition(bPosX);
 					box.setYPosition(bPosY);
 					box.updateState(board);
@@ -76,6 +79,9 @@ public class MoveController {
 					BlockBox box = (BlockBox) futurePositions.get(2);
 					int bPosX = (int) futurePositions.get(3);
 					int bPosY = (int) futurePositions.get(4);
+					
+					board.getObjectMap().remove(box.getXPosition() + "." + box.getYPosition());
+					board.getObjectMap().put(bPosX + "." + bPosY, box);
 					
 					box.setXPosition(bPosX);
 					box.setYPosition(bPosY);
