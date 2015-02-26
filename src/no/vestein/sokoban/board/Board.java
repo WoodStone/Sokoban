@@ -135,6 +135,7 @@ public class Board {
 	
 	private Map<String, Block> generateObjectMap() {
 		Map<String, Block> map = new HashMap<>();
+		BlockPlayer player = new BlockPlayer();
 		for (int i = 0; i < level.length; i++) {
 			for (int j = 0; j < level[0].length; j++) {
 				if (level[i][j] == '#') {
@@ -153,12 +154,16 @@ public class Board {
 				} else if (level[i][j] == '.') {
 					BlockGoal goal = new BlockGoal(posX + (j * Reference.BLOCK_WIDTH), posY + (i * Reference.BLOCK_HEIGHT));
 					map.put(j + "." + i + "goal", goal);
+				} else if (level[i][j] == '+') {
+					BlockGoal goal = new BlockGoal(posX + (j * Reference.BLOCK_WIDTH), posY + (i * Reference.BLOCK_HEIGHT));
+					player = new BlockPlayer(posX + (j * Reference.BLOCK_WIDTH), posY + (i * Reference.BLOCK_HEIGHT));
+					map.put(j + "." + i + "goal", goal);
 				} else if (level[i][j] == '@') {
-					BlockPlayer player = new BlockPlayer(posX + (j * Reference.BLOCK_WIDTH), posY + (i * Reference.BLOCK_HEIGHT));
-					map.put("player", player);
+					player = new BlockPlayer(posX + (j * Reference.BLOCK_WIDTH), posY + (i * Reference.BLOCK_HEIGHT));
 				}
 			}
 		}
+		map.put("player", player);
 		return map;
 	}
 	

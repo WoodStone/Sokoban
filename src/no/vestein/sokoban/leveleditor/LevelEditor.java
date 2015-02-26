@@ -91,7 +91,7 @@ public class LevelEditor {
 			for (int j = 0; j < Reference.GRID_WIDTH; j++) {
 				BlockGrid blockGrid = new BlockGrid(j * Reference.BLOCK_WIDTH + 50, i * Reference.BLOCK_WIDTH + 80, null);
 				gridGroup.getChildren().add(blockGrid);
-				level[i][j] = '0';
+				level[i][j] = '_';
 			}
 		}
 		Sokoban.levelEditorView.getChildren().add(gridGroup);
@@ -120,11 +120,12 @@ public class LevelEditor {
 		BlockTool boxOnGoal = new BlockTool(130, 40, Reference.IMAGE_BOXONGOAL, '*', "Box on Goal");
 		BlockTool goal = new BlockTool(170, 40, Reference.IMAGE_GOAL, '.', "Goal");
 		BlockTool player = new BlockTool(210, 40, Reference.IMAGE_TOOLPLAYER, '@', "Player");
-		BlockTool delete = new BlockTool(250, 40, Reference.IMAGE_DELETE, '0', "Delete");
+		BlockTool playerongoal = new BlockTool(250, 40, Reference.IMAGE_PLAYERONGOAL, '+', "Player on Goal");
+		BlockTool delete = new BlockTool(290, 40, Reference.IMAGE_DELETE, '_', "Delete");
 		
-		toolGroup.getChildren().addAll(wall, box, boxOnGoal, goal, player, delete);
+		toolGroup.getChildren().addAll(wall, box, boxOnGoal, goal, player, playerongoal, delete);
 		
-		toolTooltip = new Text(300, 55 + 7.5, "<--Select block");
+		toolTooltip = new Text(340, 55 + 7.5, "<--Select block");
 		toolTooltip.setFill(Color.PURPLE);
 		toolTooltip.setFont(Font.font(20));
 		

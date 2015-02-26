@@ -19,6 +19,7 @@ public class Reference {
 	public static final Image IMAGE_PLAYER = new Image(Main.class.getResourceAsStream("/assets/player.png"));
 	public static final Image IMAGE_TOOLPLAYER = new Image(Main.class.getResourceAsStream("/assets/toolplayer.png"));
 	public static final Image IMAGE_DELETE = new Image(Main.class.getResourceAsStream("/assets/delete.png"));
+	public static final Image IMAGE_PLAYERONGOAL = new Image(Main.class.getResourceAsStream("/assets/playerongoal.png"));
 	
 	public static final String STRING_VICTORY = "VICTORY!";
 	

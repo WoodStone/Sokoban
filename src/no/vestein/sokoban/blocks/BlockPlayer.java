@@ -45,6 +45,10 @@ public class BlockPlayer extends Block {
 		this.down = new SpriteAnimation(imageView, Duration.millis(Reference.ANIMATION_TIME), COUNTRIGHTLEFT, COLUMNS, WIDTH, HEIGHT, FRAMESLEFTRIGHT, 1);
 	}
 	
+	public BlockPlayer() {
+		this(0, 0);
+	}
+	
 	@SuppressWarnings("unused")
 	private ImageView makeImageView() {
 		ImageView imageView = new ImageView(Reference.IMAGE_PLAYER);
