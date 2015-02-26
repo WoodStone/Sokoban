@@ -26,7 +26,7 @@ public class BlockGrid extends ImageView{
 				BlockGrid block = (BlockGrid) mouseEvent.getSource();
 				try {
 					block.setImage(Sokoban.levelEditor.getSelectedBlockTool().getImage());
-					if (Sokoban.levelEditor.getSelectedBlockTool().getTag() == '0') {
+					if (Sokoban.levelEditor.getSelectedBlockTool().getTag() == '_') {
 						block.setImage(null);
 					}
 					block.setTag(Sokoban.levelEditor.getSelectedBlockTool().getTag());
