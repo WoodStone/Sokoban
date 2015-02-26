@@ -51,7 +51,8 @@ public class MoveController {
 					
 					box.setXPosition(bPosX);
 					box.setYPosition(bPosY);
-					box.updateState(board);
+//					box.updateState(board);
+					board.updateBox(box);
 				} catch (IndexOutOfBoundsException e) {
 					// TODO: handle exception
 				}
@@ -59,6 +60,7 @@ public class MoveController {
 				return false;
 			}
 		}
+		board.updateText();
 		return true;
 	}
 	
@@ -85,7 +87,7 @@ public class MoveController {
 					
 					box.setXPosition(bPosX);
 					box.setYPosition(bPosY);
-					box.updateState(board);
+					board.updateBox(box);
 				} catch (IndexOutOfBoundsException e) {
 					// TODO: handle exception
 				}
@@ -93,6 +95,7 @@ public class MoveController {
 				return false;
 			}
 		}
+		board.updateText();
 		return true;
 	}
 	
@@ -160,6 +163,7 @@ public class MoveController {
 				history.push(playerX, playerY, (BlockBox) block, block.getXPosition(), block.getYPosition());
 			}
 		}
+		board.updateText();
 	}
 	
 }

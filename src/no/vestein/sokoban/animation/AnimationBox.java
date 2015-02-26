@@ -36,7 +36,7 @@ public class AnimationBox {
 	}
 	
 	public void goDir(int dirX, int dirY) {
-		box.setDefault();
+		Sokoban.board.setBoxDefault(box);
 		if (dirX == 1) {
 			goRight();
 		} else if (dirX == -1) {
@@ -86,9 +86,7 @@ public class AnimationBox {
 				box.setYPosition(box.getYPosition() - 1);
 				box.getObject().setTranslateX(0);
 				box.getObject().setTranslateY(0);
-				if (Sokoban.board.getGoal(box.getXPosition(), box.getYPosition()) != null) {
-					box.setGoal();
-				}
+				Sokoban.board.updateBox(box);
 			}
 		});
 	}
@@ -102,9 +100,7 @@ public class AnimationBox {
 				box.setYPosition(box.getYPosition() + 1);
 				box.getObject().setTranslateX(0);
 				box.getObject().setTranslateY(0);
-				if (Sokoban.board.getGoal(box.getXPosition(), box.getYPosition()) != null) {
-					box.setGoal();
-				}
+				Sokoban.board.updateBox(box);
 			}
 		});
 	}
@@ -118,9 +114,7 @@ public class AnimationBox {
 				box.setYPosition(box.getYPosition() + 0);
 				box.getObject().setTranslateX(0);
 				box.getObject().setTranslateY(0);
-				if (Sokoban.board.getGoal(box.getXPosition(), box.getYPosition()) != null) {
-					box.setGoal();
-				}
+				Sokoban.board.updateBox(box);
 			}
 		});
 	}
@@ -134,9 +128,7 @@ public class AnimationBox {
 				box.setYPosition(box.getYPosition() + 0);
 				box.getObject().setTranslateX(0);
 				box.getObject().setTranslateY(0);
-				if (Sokoban.board.getGoal(box.getXPosition(), box.getYPosition()) != null) {
-					box.setGoal();
-				}
+				Sokoban.board.updateBox(box);
 			}
 		});
 	}

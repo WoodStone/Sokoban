@@ -3,6 +3,7 @@ package no.vestein.sokoban;
 import no.vestein.sokoban.animation.Background;
 import no.vestein.sokoban.board.Board;
 import no.vestein.sokoban.fxml.GameViewController;
+import no.vestein.sokoban.fxml.LevelSelectViewController;
 import no.vestein.sokoban.leveleditor.LevelEditor;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -61,6 +62,9 @@ public class Sokoban {
 			levelSelectView = (AnchorPane) loader.load();
 			
 			root.setCenter(levelSelectView);
+			
+			LevelSelectViewController controller = loader.getController();
+			controller.postInit();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

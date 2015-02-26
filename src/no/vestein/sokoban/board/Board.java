@@ -3,17 +3,12 @@ package no.vestein.sokoban.board;
 import java.util.HashMap;
 import java.util.Map;
 
-import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import no.vestein.sokoban.Reference;
 import no.vestein.sokoban.blocks.Block;
 import no.vestein.sokoban.blocks.BlockGoal;
@@ -32,15 +27,19 @@ public class Board {
 	private Group goalGroup;
 	private AnchorPane gameView;
 	private MoveController moveController;
+	private BoardGraphics boardGraphics;
 	
 	public Board(AnchorPane gameView, int posX, int posY, char[][] level) {
 		this.gameView = gameView;
 		this.posX = posX;
 		this.posY = posY;
 		this.level = level;
-		this.objectMap = generateObjectMap();
 		this.moveController = new MoveController(this);
+		this.boardGraphics = new BoardGraphics(this, moveController);
+		this.objectMap = generateObjectMap();
+		
 		loadLevel();
+		boardGraphics.makeTextMovesAndPushes(gameView);
 	}
 	
 	public int getPosY() {
@@ -91,41 +90,25 @@ public class Board {
 		objectMap.put("player", player);
 	}
 	
-	public void finishGame() {
-		if (isGameIsDone()) {
-			StackPane pane = new StackPane();
-			pane.setLayoutX(50);
-			pane.setLayoutY(60);
-			
-			Rectangle rect = new Rectangle(660, 660);
-			rect.setTranslateX(-10);
-			rect.setTranslateY(-10);
-			rect.setFill(Color.rgb(128, 128, 128, 0.50));
-			Text victory = new Text(Reference.STRING_VICTORY);
-			victory.setFill(Color.AQUA);
-			victory.setFont(Font.font(70));
-			victory.setEffect(new DropShadow());
-			victory.setTranslateY(-30);
-			
-			Text nMoves = new Text("Moves: " + moveController.nMoves());
-			nMoves.setFill(Color.AQUAMARINE);
-			nMoves.setFont(Font.font(50));
-			nMoves.setEffect(new DropShadow());
-			nMoves.setTranslateY(40);
-			
-			Text nPushes = new Text("Pushes: " + moveController.nBlockPushes());
-			nPushes.setFill(Color.AQUAMARINE);
-			nPushes.setFont(Font.font(50));
-			nPushes.setEffect(new DropShadow());
-			nPushes.setTranslateY(100);
-			
-			
-			pane.getChildren().addAll(rect, victory, nMoves, nPushes);
-			pane.setAlignment(Pos.CENTER);
-			
-			gameView.getChildren().add(pane);
-			pane.requestFocus();
+	public void updateText() {
+		boardGraphics.updateText();
+	}
+	
+	public void updateBox(BlockBox box) {
+		if (isGoal(box.getXPosition(), box.getYPosition())) {
+			setBoxGoal(box);
+			boardGraphics.finishGame(this, gameView);
+		} else {
+			setBoxDefault(box);
 		}
+	}
+	
+	public void setBoxDefault(BlockBox box) {
+		box.getObject().setImage(Reference.IMAGE_BOX);
+	}
+	
+	public void setBoxGoal(BlockBox box) {
+		box.getObject().setImage(Reference.IMAGE_BOXONGOAL);
 	}
 	
 	private void loadLevel() {
@@ -159,7 +142,7 @@ public class Board {
 					map.put(j + "." + i, wall);
 				} else if (level[i][j] == '*') {
 					BlockBox box = new BlockBox(posX + (j * Reference.BLOCK_WIDTH), posY + (i * Reference.BLOCK_HEIGHT));
-					box.setGoal();
+					setBoxGoal(box);
 					map.put(j + "." + i, box);
 					
 					BlockGoal goal = new BlockGoal(posX + (j * Reference.BLOCK_WIDTH), posY + (i * Reference.BLOCK_HEIGHT));
