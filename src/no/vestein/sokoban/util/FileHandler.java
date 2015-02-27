@@ -10,10 +10,11 @@ import java.util.Scanner;
 import no.vestein.sokoban.Main;
 import no.vestein.sokoban.Sokoban;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
-public class FileHandler {
-
-	public static void saveDialog(char[][] level) throws FileNotFoundException {
+public class FileHandler implements IFileHandler<char[][]> {
+	
+	public void saveDialog(char[][] level, Stage stage) throws FileNotFoundException {
 		String filepath = System.getProperty("user.home");
 		
 		FileChooser fileChooser = new FileChooser();
@@ -32,7 +33,7 @@ public class FileHandler {
 		output.close();
 	}
 	
-	public static char[][] loadDialog() throws FileNotFoundException {
+	public char[][] loadDialog(Stage stage) {
 		String filepath = System.getProperty("user.home");
 		
 		FileChooser fileChooser = new FileChooser();
@@ -41,25 +42,34 @@ public class FileHandler {
 		
 		File file = fileChooser.showOpenDialog(Sokoban.primaryStage);
 
-		return readLevelFile(file);
+		try {
+			return readLevelFile(file);
+		} catch (FileNotFoundException e) {
+			return null;
+		}
+		
 	}
 	
-	public static char[][] loadLevel(String filename) throws FileNotFoundException {
+	public char[][] loadLevel(String filename) throws FileNotFoundException {
 		InputStream io = Main.class.getResourceAsStream("/assets/levels/" + filename);
 		return readLevelFile(io);
 	}
 	
-	public static char[][] readLevelFile(InputStream io) throws FileNotFoundException {
+	public void saveLevel(char[][] level) {
+		
+	}
+	
+	private char[][] readLevelFile(InputStream io) throws FileNotFoundException {
 		Scanner scanner = new Scanner(io);
 		return readFile(scanner);
 	}
 	
-	public static char[][] readLevelFile(File file) throws FileNotFoundException {
+	private char[][] readLevelFile(File file) throws FileNotFoundException {
 		Scanner scanner = new Scanner(file);
 		return readFile(scanner);
 	}
 	
-	private static char[][] readFile(Scanner scanner) {
+	private char[][] readFile(Scanner scanner) {
 		char[][] newLevel = new char[20][20];
 		int yPos = 0;
 		while (scanner.hasNextLine()) {

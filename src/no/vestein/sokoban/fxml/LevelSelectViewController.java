@@ -9,8 +9,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import no.vestein.sokoban.Sokoban;
 import no.vestein.sokoban.util.FileHandler;
+import no.vestein.sokoban.util.IFileHandler;
 
 public class LevelSelectViewController {
+	
+	private IFileHandler<char[][]> fileHandler = new FileHandler();
 	
 	public void postInit() {
 		makeButtons();
@@ -23,14 +26,14 @@ public class LevelSelectViewController {
 	
 	@FXML
 	public void customLevelButtonPressed() throws FileNotFoundException {
-		char[][] level = FileHandler.loadDialog();
+		char[][] level = fileHandler.loadDialog(Sokoban.primaryStage);
 		Sokoban.startGame(level);
 	}
 	
 	@FXML 
 	public void levelButtonPressed(MouseEvent mouseEvent) throws FileNotFoundException {
 		String filename = ((Text) mouseEvent.getSource()).getText().toLowerCase().replaceAll("\\s", "");
-		Sokoban.startGame(FileHandler.loadLevel(filename));
+		Sokoban.startGame(new FileHandler().loadLevel(filename));
 	}
 	
 	@FXML
@@ -64,7 +67,7 @@ public class LevelSelectViewController {
 			int levelnumber = ((LevelSelectStackPane) mouseEvent.getSource()).getTag();
 			String filename = "level" + Integer.toString(levelnumber);
 			try  {
-				Sokoban.startGame(FileHandler.loadLevel(filename));
+				Sokoban.startGame(fileHandler.loadLevel(filename));
 			} catch (FileNotFoundException e) {
 				// TODO: add popup!!
 			}
