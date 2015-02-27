@@ -51,7 +51,6 @@ public class MoveController {
 					
 					box.setXPosition(bPosX);
 					box.setYPosition(bPosY);
-//					box.updateState(board);
 					board.updateBox(box);
 				} catch (IndexOutOfBoundsException e) {
 					// TODO: handle exception
