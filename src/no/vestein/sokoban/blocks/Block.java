@@ -2,15 +2,20 @@ package no.vestein.sokoban.blocks;
 
 import no.vestein.sokoban.Reference;
 import no.vestein.sokoban.Sokoban;
-import javafx.scene.Node;
+import javafx.scene.image.ImageView;
 
 public class Block{
 
-	int x, y;
+	protected ImageView imageView = new ImageView();
+	protected int x, y;
 	
 	public Block(int x, int y) {
 		this.x = x;
 		this.y = y;
+		imageView.setFitHeight(Reference.BLOCK_HEIGHT);
+		imageView.setFitWidth(Reference.BLOCK_WIDTH);
+		imageView.setX(x);
+		imageView.setY(y);
 	}
 	
 	public int getXPosition() {
@@ -21,8 +26,8 @@ public class Block{
 		return (y - Sokoban.board.getPosY()) / Reference.BLOCK_HEIGHT;
 	}
 	
-	public Node getObject() {
-		return null;
+	public ImageView getObject() {
+		return imageView;
 	}
 	
 }

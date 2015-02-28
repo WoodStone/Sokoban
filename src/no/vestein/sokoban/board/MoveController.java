@@ -102,7 +102,7 @@ public class MoveController {
 		if (! board.isGameIsDone()) {
 			KeyCode key = keyevent.getCode();
 			BlockPlayer player = board.getPlayer();
-			if (!player.getMoving()) {
+			if (!player.isMoving()) {
 				if (key == KeyCode.DOWN) {
 					movePlayer(0, 1);
 				} else if (key == KeyCode.UP) {

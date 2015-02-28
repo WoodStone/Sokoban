@@ -23,7 +23,6 @@ public class BlockPlayer extends Block {
 	private SpriteAnimation left;
 	private SpriteAnimation up;
 	private SpriteAnimation down;
-	private ImageView imageView;
 	private AnimationPlayer animationPlayer;
 	private boolean moving = false;
 	
@@ -117,13 +116,8 @@ public class BlockPlayer extends Block {
 		this.moving = moving;
 	}
 	
-	public boolean getMoving() {
+	public boolean isMoving() {
 		return moving;
-	}
-	
-	@Override
-	public ImageView getObject() {
-		return imageView;
 	}
 	
 }
