@@ -1,7 +1,17 @@
 package no.vestein.sokoban.board;
 
+import java.io.FileNotFoundException;
+import java.util.Arrays;
+
 import no.vestein.sokoban.Reference;
 import no.vestein.sokoban.Sokoban;
+import no.vestein.sokoban.blocks.Block;
+import no.vestein.sokoban.blocks.BlockBox;
+import no.vestein.sokoban.blocks.BlockGoal;
+import no.vestein.sokoban.blocks.BlockPlayer;
+import no.vestein.sokoban.blocks.BlockWall;
+import no.vestein.sokoban.util.FileHandler;
+import no.vestein.sokoban.util.IFileHandler;
 import javafx.geometry.Pos;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.AnchorPane;
@@ -17,6 +27,7 @@ public class BoardGraphics {
 	private Polygon forward;
 	private Polygon backward;
 	private VText movesAndPushes;
+	private Text save;
 	private Board board;
 	private MoveController moveController;
 	
@@ -25,7 +36,84 @@ public class BoardGraphics {
 		this.moveController = moveController;
 		
 		makeTri();
-		Sokoban.gameView.getChildren().addAll(forward, backward);
+		makeSaveButton();
+		Sokoban.gameView.getChildren().addAll(forward, backward, save);
+	}
+	
+	private void makeSaveButton() {
+		save = new Text("Save");
+		save.setFont(Font.font(30));
+		save.setX(300);
+		save.setY(40);
+		save.setFill(Color.DARKBLUE);
+		
+		save.setOnMouseEntered(mouseEvent -> {
+			save.setFill(Color.BLUE);
+		});
+		
+		save.setOnMouseExited(mouseEvent -> {
+			save.setFill(Color.DARKBLUE);
+		});
+		
+		save.setOnMouseClicked(mouseEvent -> {
+			saveGame();
+		});
+	}
+	
+	private void saveGame() {
+		char[][] level = new char[20][20];
+		for (char[] a : level) {
+			Arrays.fill(a, '_');
+		}
+		for (Block block : board.getObjectMap().values()) {
+			if (block instanceof BlockWall) {
+				block = (BlockWall) block;
+				int xpos = block.getXPosition();
+				int ypos = block.getYPosition();
+				
+				level[ypos][xpos] = '#';
+			} else if (block instanceof BlockGoal) {
+				block = (BlockGoal) block;
+				int xpos = block.getXPosition();
+				int ypos = block.getYPosition();
+				
+				level[ypos][xpos] = '.';
+			}
+		}
+		
+		for (Block block : board.getObjectMap().values()) {
+			if (block instanceof BlockBox) {
+				block = (BlockBox) block;
+				int xpos = block.getXPosition();
+				int ypos = block.getYPosition();
+				
+				if (level[ypos][xpos] == '.') {
+					level[ypos][xpos] = '*';
+				} else {
+					level[ypos][xpos] = '$';
+				}
+			}
+		}
+		
+		BlockPlayer player = board.getPlayer();
+		int xpos = player.getXPosition();
+		int ypos = player.getYPosition();
+		
+		if (level[ypos][xpos] == '.') {
+			level[ypos][xpos] = '+';
+		} else {
+			level[ypos][xpos] = '@';
+		}
+		
+		IFileHandler<char[][]> fileHandler = new FileHandler();
+		
+		try {
+			fileHandler.saveDialog(level, Sokoban.primaryStage);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 	private void makeTri() {
