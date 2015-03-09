@@ -42,8 +42,8 @@ public class BoardGraphics {
 	
 	private void makeSaveButton() {
 		save = new Text("Save");
-		save.setFont(Font.font(30));
-		save.setX(300);
+		save.setFont(Font.font(25));
+		save.setX(185);
 		save.setY(40);
 		save.setFill(Color.DARKBLUE);
 		
