@@ -30,7 +30,7 @@ public class Background {
 		rectangles = new Group();
 		Random r = new Random();
 		for (int i = 0; i < 30; i++) {
-			Rectangle rect = new Rectangle(150, 150, Color.web("white", 0.05));
+			Rectangle rect = new Rectangle(50, 50, Color.web("white", 0.05));
 			rect.setStrokeType(StrokeType.OUTSIDE);
 			rect.setStroke(Color.web("white", 0.16));
 			rect.setStrokeWidth(4);
