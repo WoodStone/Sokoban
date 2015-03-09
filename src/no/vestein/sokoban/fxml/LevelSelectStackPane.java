@@ -46,7 +46,7 @@ public class LevelSelectStackPane extends StackPane {
 			rect.setEffect(new DropShadow(5, Color.AQUA));
 		});
 		this.setOnMouseExited(mouseEvent -> {
-			rect.setEffect(new DropShadow(5, Color.BLACK));
+			rect.setEffect(new DropShadow(5, Color.GREY));
 		});
 	}
 	

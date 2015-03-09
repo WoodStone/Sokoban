@@ -6,11 +6,11 @@ public class Reference {
 	
 	public static final int BLOCK_WIDTH = 32;
 	public static final int BLOCK_HEIGHT = 32;
-	public static final int WINDOW_WIDTH = 700;
-	public static final int WINDOW_HEIGHT = 700;
+	public static final int WINDOW_WIDTH = 740;
+	public static final int WINDOW_HEIGHT = 740;
 	public static final int GRID_WIDTH = 20;
 	public static final int GRID_HEIGHT = 20;
-	public static final int ANIMATION_TIME = 300;
+	public static final int ANIMATION_TIME = 200;
 	
 	public static final Image IMAGE_BOX = new Image(Main.class.getResourceAsStream("/assets/box.png"));
 	public static final Image IMAGE_BOXONGOAL = new Image(Main.class.getResourceAsStream("/assets/boxongoal.png"));
