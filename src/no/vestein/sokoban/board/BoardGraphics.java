@@ -19,7 +19,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class BoardGraphics {
@@ -41,19 +40,7 @@ public class BoardGraphics {
 	}
 	
 	private void makeSaveButton() {
-		save = new Text("Save");
-		save.setFont(Font.font(25));
-		save.setX(185);
-		save.setY(40);
-		save.setFill(Color.DARKBLUE);
-		
-		save.setOnMouseEntered(mouseEvent -> {
-			save.setFill(Color.BLUE);
-		});
-		
-		save.setOnMouseExited(mouseEvent -> {
-			save.setFill(Color.DARKBLUE);
-		});
+		save = new VText(Color.DARKBLUE, Color.BLUE, 25, 185, 40, "Save");
 		
 		save.setOnMouseClicked(mouseEvent -> {
 			saveGame();
@@ -110,7 +97,6 @@ public class BoardGraphics {
 		try {
 			fileHandler.saveDialog(level, Sokoban.primaryStage);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -150,9 +136,9 @@ public class BoardGraphics {
 			rect.setTranslateY(-10);
 			rect.setFill(Color.rgb(128, 128, 128, 0.50));
 			
-			VText victory = new VText(Color.AQUA, 70, 0, -30, Reference.STRING_VICTORY);
-			VText nMoves = new VText(Color.AQUAMARINE, 50, 0, 40, "Moves: " + moveController.nMoves());
-			VText nPushes = new VText(Color.AQUAMARINE, 50, 0, 100, "Pushes: " + moveController.nBlockPushes());
+			VText victory = new VText(Color.AQUA, 70, 0, -30, Reference.STRING_VICTORY, new DropShadow());
+			VText nMoves = new VText(Color.AQUAMARINE, 50, 0, 40, "Moves: " + moveController.nMoves(), new DropShadow());
+			VText nPushes = new VText(Color.AQUAMARINE, 50, 0, 100, "Pushes: " + moveController.nBlockPushes(), new DropShadow());
 			
 			pane.getChildren().addAll(rect, victory, nMoves, nPushes);
 			pane.setAlignment(Pos.CENTER);
@@ -161,40 +147,5 @@ public class BoardGraphics {
 			pane.requestFocus();
 		}
 	}
-	
-	private class VText extends Text {
-		
-		public VText(Color color, int fontSize, int x, int y, String text) {
-			super(text);
-			setFill(color);
-			setFont(Font.font(fontSize));
-			setEffect(new DropShadow());
-			setTranslateX(x);
-			setTranslateY(y);
-		}
-		
-	}
-	
-	private class Triangle extends Polygon {
-		
-		public Triangle(double point1x, double point1y, double point2x, double point2y, double point3x, double point3y, int x, int y) {
-			getPoints().addAll(new Double[] {
-					point1x, point1y,
-					point2x, point2y,
-					point3x, point3y
-				});
-			setLayoutX(x);
-			setLayoutY(y);
-			setFill(Color.GREEN);
-			setEffect(new DropShadow(5, Color.DARKGREEN));
-			
-			setOnMouseEntered(mouseevent -> {
-				setFill(Color.LIGHTGREEN);
-			});
-			setOnMouseExited(mouseevent -> {
-				setFill(Color.GREEN);
-			});
-		}
-		
-	}
+
 }
