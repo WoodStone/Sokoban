@@ -27,6 +27,7 @@ public class BoardGraphics {
 	private Polygon backward;
 	private VText movesAndPushes;
 	private Text save;
+	private Text load;
 	private Board board;
 	private MoveController moveController;
 	
@@ -36,7 +37,7 @@ public class BoardGraphics {
 		
 		makeTri();
 		makeSaveButton();
-		Sokoban.gameView.getChildren().addAll(forward, backward, save);
+		Sokoban.gameView.getChildren().addAll(forward, backward, save, load);
 	}
 	
 	private void makeSaveButton() {
@@ -45,6 +46,18 @@ public class BoardGraphics {
 		save.setOnMouseClicked(mouseEvent -> {
 			saveGame();
 		});
+		
+		load = new VText(Color.DARKBLUE, Color.BLUE, 25, 255, 40, "Load");
+		
+		load.setOnMouseClicked(mouseEvent -> {
+			loadGame();
+		});
+	}
+	
+	private void loadGame() {
+		IFileHandler<char[][]> fileHandler = new FileHandler();
+		char[][] level = fileHandler.loadDialog(Sokoban.primaryStage);
+		Sokoban.startGame(level);
 	}
 	
 	private void saveGame() {
