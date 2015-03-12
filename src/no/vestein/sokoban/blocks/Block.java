@@ -4,7 +4,7 @@ import no.vestein.sokoban.Reference;
 import no.vestein.sokoban.Sokoban;
 import javafx.scene.image.ImageView;
 
-public class Block{
+public class Block {
 
 	protected ImageView imageView = new ImageView();
 	protected int x, y;

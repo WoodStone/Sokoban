@@ -1,4 +1,4 @@
-package no.vestein.sokoban.blocks;
+ package no.vestein.sokoban.blocks;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,7 +11,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
-public class BlockPlayer extends Block {
+public class BlockPlayer extends Block implements IMoveable {
 	
 	private final int WIDTH = 64;
 	private final int HEIGHT = 64;
@@ -48,15 +48,6 @@ public class BlockPlayer extends Block {
 		this(0, 0);
 	}
 	
-	@SuppressWarnings("unused")
-	private ImageView makeImageView() {
-		ImageView imageView = new ImageView(Reference.IMAGE_PLAYER);
-		imageView.setViewport(new Rectangle2D(0, 0, WIDTH, HEIGHT));
-		imageView.setScaleX(0.75);
-		imageView.setScaleY(0.75);
-		return imageView;
-	}
-	
 	public void setXPosition(int x) {
 		imageView.setX(x * Reference.BLOCK_WIDTH + Sokoban.board.getPosX() - 17);
 		super.x = x * Reference.BLOCK_WIDTH + Sokoban.board.getPosX();
@@ -70,7 +61,6 @@ public class BlockPlayer extends Block {
 	@Override
 	public int getXPosition() {
 		return (x - Sokoban.board.getPosX()) / Reference.BLOCK_WIDTH;
-		
 	}
 	
 	@Override
@@ -90,23 +80,23 @@ public class BlockPlayer extends Block {
 		}
 	}
 
-	public void goRight() {
+	private void goRight() {
 		animationPlayer.goRight();
 		right.play();
 	}
 	
-	public void goLeft() {
+	private void goLeft() {
 		animationPlayer.goLeft();
 		left.play();
 	}
 	
-	public void goUp() {
+	private void goUp() {
 		animationPlayer.goUp();
 		up.setDir((int) (imageView.getScaleX() * 2));
 		up.play();
 	}
 	
-	public void goDown() {
+	private void goDown() {
 		animationPlayer.goDown();
 		down.setDir((int) (imageView.getScaleX() * 2));
 		down.play();

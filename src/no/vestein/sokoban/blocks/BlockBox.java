@@ -4,7 +4,7 @@ import no.vestein.sokoban.Reference;
 import no.vestein.sokoban.Sokoban;
 import no.vestein.sokoban.animation.AnimationBox;
 
-public class BlockBox extends Block{
+public class BlockBox extends Block implements IMoveable {
 	
 	private AnimationBox animationBox;
 	
