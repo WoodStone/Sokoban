@@ -31,7 +31,6 @@ public class MoveController {
 	public boolean backward() {
 		if (! board.isGameIsDone()) {
 			try {
-				
 				List<Object> lastPositions = history.pop(board);
 				BlockPlayer player = board.getPlayer();
 				
@@ -41,7 +40,7 @@ public class MoveController {
 				player.setXPosition(pPosX);
 				player.setYPosition(pPosY);
 				
-				try {
+				if (lastPositions.size() > 2) {
 					BlockBox box = (BlockBox) lastPositions.get(2);
 					int bPosX = (int) lastPositions.get(3);
 					int bPosY = (int) lastPositions.get(4);
@@ -52,8 +51,6 @@ public class MoveController {
 					box.setXPosition(bPosX);
 					box.setYPosition(bPosY);
 					board.updateBox(box);
-				} catch (IndexOutOfBoundsException e) {
-					// TODO: handle exception
 				}
 			} catch (EmptyStackException e) {
 				return false;
@@ -66,7 +63,6 @@ public class MoveController {
 	public boolean forward() {
 		if (! board.isGameIsDone()) {
 			try {
-				
 				List<Object> futurePositions = history.popFuture(board);
 				BlockPlayer player = board.getPlayer();
 				
@@ -76,7 +72,7 @@ public class MoveController {
 				player.setXPosition(pPosX);
 				player.setYPosition(pPosY);
 				
-				try {
+				if (futurePositions.size() > 2) {
 					BlockBox box = (BlockBox) futurePositions.get(2);
 					int bPosX = (int) futurePositions.get(3);
 					int bPosY = (int) futurePositions.get(4);
@@ -87,8 +83,6 @@ public class MoveController {
 					box.setXPosition(bPosX);
 					box.setYPosition(bPosY);
 					board.updateBox(box);
-				} catch (IndexOutOfBoundsException e) {
-					// TODO: handle exception
 				}
 			} catch (EmptyStackException e) {
 				return false;
