@@ -1,0 +1,28 @@
+group 'Sokoban'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply from: "http://dl.bintray.com/content/shemnon/javafx-gradle/8.1.1/javafx.plugin"
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+javafx {
+    javaRuntime = System.getenv("java.home")
+
+    appID 'sokoban'
+    appName 'Sokoban'
+
+    mainClass 'no.vestein.sokoban.Main'
+
+    jvmArgs = ['-XX:+AggressiveOpts', '-XX:CompileThreshold=1']
+    systemProperties = ['prism.disableRegionCaching':'true']
+    arguments = ['-l', '--fast']
+}

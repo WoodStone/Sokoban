@@ -42,8 +42,8 @@ public class Background {
 			rect.setStroke(Color.rgb(col1, col2, col3));
 			rectangles.getChildren().add(rect);
 		}
-		rectangles.setEffect(new BoxBlur(10, 10, 3));	
-		
+		rectangles.setEffect(new BoxBlur(10, 10, 3));
+
 		root.getChildren().addAll(new Rectangle(Sokoban.scene.getWidth(), Sokoban.scene.getHeight(), Color.WHITESMOKE), rectangles);
 		
 		timeline = new Timeline();

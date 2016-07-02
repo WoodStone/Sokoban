@@ -3,3 +3,6 @@
 build.fxbuild
 *.log
 .DS_Store
+.idea
+gradle
+.gradle

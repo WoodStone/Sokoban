@@ -30,10 +30,8 @@ public class Sokoban {
 	
 	public static void initRoot() {
 		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Main.class.getResource("fxml/RootView.fxml"));
-			root = (BorderPane) loader.load();
-			
+            root = FXMLLoader.load(Main.class.getResource("/fxml/RootView.fxml"));
+
 			scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -45,8 +43,8 @@ public class Sokoban {
 	
 	public static void initStart() {
 		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Main.class.getResource("fxml/StartView.fxml"));
+			FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/StartView.fxml"));
+//			loader.setLocation(Main.class.getResource("fxml/StartView.fxml"));
 			startView = (AnchorPane) loader.load();
 			
 			root.setCenter(startView);
@@ -58,7 +56,7 @@ public class Sokoban {
 	public static void levelSelect() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Main.class.getResource("fxml/LevelSelectView.fxml"));
+			loader.setLocation(Main.class.getResource("/fxml/LevelSelectView.fxml"));
 			levelSelectView = (AnchorPane) loader.load();
 			
 			root.setCenter(levelSelectView);
@@ -73,7 +71,7 @@ public class Sokoban {
 	public static void levelEditor() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Main.class.getResource("fxml/LevelEditorView.fxml"));
+			loader.setLocation(Main.class.getResource("/fxml/LevelEditorView.fxml"));
 			levelEditorView = (AnchorPane) loader.load();
 			
 			root.setCenter(levelEditorView);
@@ -86,7 +84,7 @@ public class Sokoban {
 	public static void startGame(char[][] level) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Main.class.getResource("fxml/GameView.fxml"));
+			loader.setLocation(Main.class.getResource("/fxml/GameView.fxml"));
 			gameView = (AnchorPane) loader.load();
 			
 			root.setCenter(gameView);
